@@ -1,517 +1,452 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark light" />
-    <meta name="theme-color" content="#0b0c0e" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0b0c0e" />
 
-    <title>Santiago Ruiz — builder Jr.</title>
+  <title>Santiago Ruiz — Builder Developer Jr.</title>
+  <meta
+    name="description"
+    content="Portafolio de Santiago Ruiz, builder junior desde Cali. Construyo sistemas y productos web con HTML, CSS y JavaScript."
+  />
+  <meta name="author" content="Santiago Ruiz" />
 
-    <meta
-      name="description"
-      content="Portfolio de Santiago Ruiz, builder junior desde Cali. Enfocado en costruir sistemas, el cual pueda ayudar a resolver una necesidad especifica"
-    />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Santiago Ruiz — Builder Developer Jr." />
+  <meta
+    property="og:description"
+    content="Portafolio personal. HTML, CSS y JavaScript. Construido a mano, con intención."
+  />
+  <meta property="og:locale" content="es_CO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Santiago Ruiz — Builder Developer Jr." />
+  <meta
+    name="twitter:description"
+    content="Portafolio personal. HTML, CSS y JavaScript. Construido a mano, con intención."
+  />
 
-    <meta name="author" content="Santiago Ruiz"/>
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='12' fill='%237ee6c8'/><circle cx='20' cy='14' r='10' fill='%230b0c0e'/></svg>"
+  />
 
-    <!-- Open Graph / preview en redes sociales -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Santiago Ruiz — Builder Developer Jr." />
-    <meta
-      property="og:description"
-      content="Portfolio personal. HTML, CSS y JavaScript. Construido a mano, con cariño."
-    />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
 
-    <meta property="og:locale" content="es_CO" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Santiago Ruiz — Builder Developer Jr." />
-
-    <meta
-      name="twitter:description"
-      content="Portfolio personal. HTML, CSS y JavaScript. Construido a mano, con cariño."
-    />
-
-     <!-- Favicon en SVG inline (luna) -->
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='12' fill='%237ee6c8'/><circle cx='20' cy='14' r='10' fill='%230b0c0e'/></svg>"
-    />
-
-    <!-- Fuentes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-
-     <link rel="stylesheet" href="styles/styless.css?v=4" />
-
-    
+  <link rel="stylesheet" href="styles/styless.css?v=1" />
+  <noscript>
+    <style>
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  </noscript>
+  <script src="scripts.js?v=1" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="grain" aria-hidden="true"></div>
 
-    <!-- Skip link: salta al contenido con teclado -->
-    <a class="skip-link" href="#main">Saltar al contenido</a>
+  <header class="nav" data-nav>
+    <div class="container nav__inner">
+      <a class="nav__logo" href="#inicio" aria-label="Santiago Ruiz, ir al inicio">SR<span>.</span></a>
 
-    <!-- Capa de grain (ruido sutil) -->
-    <div class="grain" aria-hidden="true"></div>
+      <nav class="nav__links" aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#stack">Stack</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#experiencia">Experiencia</a>
+      </nav>
 
-    <header class="nav" data-nav>
-      <div class="nav__inner container">
-        <a class="nav__logo" href="#top" aria-label="Ir al inicio">
-          <span class="nav__logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32" width="20" height="20">
-              <circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="1.5" />
-              <path d="M10 16 L14 20 L22 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
-          <span class="nav__logo-text">Santiago<span class="accent">.</span></span>
-        </a>
-
-        <nav class="nav__menu" aria-label="Navegacion principal">
-          <ul class="nav__list" data-nav-list>
-            <li><a href="#sobre-mi" class="nav__link"><span class="nav__num">01</span>Sobre mi</a></li>
-            <li><a href="#stack" class="nav__link"><span class="nav__num">02</span>Stack</a></li>
-            <li><a href="#proyectos" class="nav__link"><span class="nav__num">03</span>Proyectos</a></li>
-            <li><a href="#experiencia" class="nav__link"><span class="nav__num">04</span>Experiencia</a></li>
-            <li><a href="#contacto" class="nav__link"><span class="nav__num">05</span>Contacto</a></li>
-          </ul>
-        </nav>
-
-        <div class="nav__actions">
-          <button
-            class="icon-btn"
-            type="button"
-            data-theme-toggle
-            aria-label="Cambiar tema"
-            title="Cambiar tema"
-          >
-            <svg class="icon icon--sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <circle cx="12" cy="12" r="4" fill="currentColor" />
-              <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                <line x1="12" y1="2.5" x2="12" y2="5" />
-                <line x1="12" y1="19" x2="12" y2="21.5" />
-                <line x1="2.5" y1="12" x2="5" y2="12" />
-                <line x1="19" y1="12" x2="21.5" y2="12" />
-                <line x1="4.8" y1="4.8" x2="6.6" y2="6.6" />
-                <line x1="17.4" y1="17.4" x2="19.2" y2="19.2" />
-                <line x1="4.8" y1="19.2" x2="6.6" y2="17.4" />
-                <line x1="17.4" y1="6.6" x2="19.2" y2="4.8" />
-              </g>
-            </svg>
-            <svg class="icon icon--moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="currentColor" />
-            </svg>
-          </button>
-
-          <a class="btn btn--ghost nav__cta" href="#contacto">Contactame</a>
-
-          <button
-            class="icon-btn nav__hamburger"
-            type="button"
-            data-menu-toggle
-            aria-label="Abrir menu"
-            aria-expanded="false"
-            aria-controls="mobile-menu"
-          >
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-              <line x1="4" y1="8" x2="20" y2="8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-              <line x1="4" y1="16" x2="20" y2="16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
+      <div class="nav__actions">
+        <a class="btn btn--ghost nav__cta" href="#contacto">Hablemos</a>
+        <button
+          class="nav__toggle"
+          type="button"
+          data-menu-toggle
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Abrir menú"
+        >
+          <span></span>
+          <span></span>
+        </button>
       </div>
+    </div>
+  </header>
 
-      <!-- Menu mobile (oculto por defecto) -->
-      <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
-        <ul class="mobile-menu__list">
-          <li><a href="#sobre-mi"><span class="nav__num">01</span>Sobre mi</a></li>
-          <li><a href="#stack"><span class="nav__num">02</span>Stack</a></li>
-          <li><a href="#proyectos"><span class="nav__num">03</span>Proyectos</a></li>
-          <li><a href="#experiencia"><span class="nav__num">04</span>Experiencia</a></li>
-          <li><a href="#contacto"><span class="nav__num">05</span>Contacto</a></li>
-        </ul>
-        <a class="btn btn--primary mobile-menu__cta" href="#contacto">Contactame</a>
-      </div>
-    </header>
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+    <nav class="mobile-menu__nav" aria-label="Navegación móvil">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#stack">Stack</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn btn--primary" href="#contacto">Hablemos</a>
+  </div>
 
-    
-    <main id="main">
-
-        <!-- Hero -->
-        <section class="hero" id="top">
-            <div class="container hero__iner">
-                <p class="eyebrow reveal" data-reveal>
-                    <span class="eyebrow__dot" aria-hidden="true"></span>
-                    Disponible para trabajar · Cali, Colombia
-                </p>
-
-                <h1 class="hero__title reveal" data-reveal>
-                    Hola, soy <span class="hero__name">Santiago Ruiz</span>.
-                </h1>
-
-                <p class="hero__pitch reveal" data-reveal>
-                  <br>Creo que la mejor tecnología es la que le resuelve algo real a alguien. Por eso me tomo el tiempo de entender cómo funcionan las cosas antes de armarlas. Soy desarrollador backend en formación y me encanta construir lo que hace que todo lo demás funcione.
-                </p>
-
-                <div class="hero__ctas reveal" data-reveal>
-                    <a class="btn btn--primary" href="#proyectos">
-                        Ver proyectos
-                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                            <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                    <a class="btn btn--ghost" href="#contacto">Contactame</a>
-                </div>
-
-                <div class="hero__meta reveal" data-reveal>
-                    <dl class="hero__stats">
-                        <div>
-                            <dt>Proyectos</dt>
-                            <dd><span class="num">12</span></dd>
-                        </div>
-                        <div>
-                            <dt>Commits este anio</dt>
-                            <dd><span class="num">480</span><span class="plus">+</span></dd>
-                        </div>
-                        <div>
-                            <dt>cafes consumidos</dt>
-                            <dd><span class="num">∞</span></dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-
-            <a class="hero__scroll" href="#sobre-mi" aria-label="Desplazarse a la siguiente seccion">
-                <span>scroll</span>
-                <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-                    <path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-        </section>
-
-        <!-- SOBRE MI -->
-      <section class="section" id="sobre-mi">
-        <div class="container">
-          <header class="section__head reveal" data-reveal>
-            <span class="section__num">01</span>
-            <h2 class="section__title">Sobre mi</h2>
-            <span class="section__rule" aria-hidden="true"></span>
-          </header>
-
-          <div class="about">
-            <div class="about__text reveal" data-reveal>
-              <p>
-                Soy Santiago, builder autodidacta desde Cali.
-                Mis ganas de aprender acerca de tecnologia comenzo desde temprana edad, desarmando celulares entre otros dispositivos, me gusta
-                comprender el porque de los sistemas, que se le puede mejorar.
-              </p>
-              <p>
-                Creo que la web puede ser rapida y hermosa al mismo tiempo.
-                Me gusta pulir los detalles, estudiar tipografia y escribir CSS que envejezca bien — sin frameworks cuando no hacen falta.
-              </p>
-              <p>
-                Fuera del editor: cafe de origen, lettering a mano y caminatas largas por Cali.
-              </p>
-
-              <ul class="about__facts">
-                <li>
-                  <span class="about__facts-key">Ubicacion</span>
-                  <span>Cali, Colombia</span>
-                </li>
-                <li>
-                  <span class="about__facts-key">Idiomas</span>
-                  <span>Espaniol nativo · Ingles A2</span>
-                </li>
-                <li>
-                  <span class="about__facts-key">Disponibilidad</span>
-                  <span>Full-time · Remoto</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="about__media reveal" data-reveal>
-              <figure class="portrait">
-                <!-- <img
-                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=70"
-                  alt="Retrato de Mariana Luna trabajando en su laptop"
-                  loading="lazy"
-                  decoding="async"
-                  width="560"
-                  height="700"
-                /> -->
-                <figcaption class="portrait__caption">
-                  <span class="portrait__dot" aria-hidden="true"></span>
-                  Cali · 2026
-                </figcaption>
-              </figure>
-            </div>
-          </div>
-
-          <!-- Skill bars -->
-          <div class="skills reveal" data-reveal>
-            <h3 class="skills__title">Donde estoy hoy</h3>
-            <ul class="skills__list">
-              <li>
-                <div class="skills__row">
-                  <span class="skills__name">HTML & Accesibilidad</span>
-                  <span class="skills__value">90%</span>
-                </div>
-                <div class="skills__bar"><span style="--w:90%"></span></div>
-              </li>
-              <li>
-                <div class="skills__row">
-                  <span class="skills__name">CSS moderno</span>
-                  <span class="skills__value">85%</span>
-                </div>
-                <div class="skills__bar"><span style="--w:85%"></span></div>
-              </li>
-              <li>
-                <div class="skills__row">
-                  <span class="skills__name">JavaScript</span>
-                  <span class="skills__value">70%</span>
-                </div>
-                <div class="skills__bar"><span style="--w:70%"></span></div>
-              </li>
-              <li>
-                <div class="skills__row">
-                  <span class="skills__name">Git & Colaboracion</span>
-                  <span class="skills__value">75%</span>
-                </div>
-                <div class="skills__bar"><span style="--w:75%"></span></div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-            <!-- STACK -->
-      <section class="section" id="stack">
-        <div class="container">
-          <header class="section__head reveal" data-reveal>
-            <span class="section__num">02</span>
-            <h2 class="section__title">Stack tecnologico</h2>
-            <span class="section__rule" aria-hidden="true"></span>
-          </header>
-
-          <p class="section__lede reveal" data-reveal>
-            Trabajo con herramientas sencillas y me tomo el tiempo de entenderlas bien.
-            Menos abstracciones, mas fundamentos.
+  <main id="main">
+    <section class="hero" id="inicio">
+      <div class="container hero__grid">
+        <div class="hero__copy" data-reveal>
+          <p class="status">
+            <span class="status__dot" aria-hidden="true"></span>
+            Disponible para proyectos
           </p>
 
-          <ul class="stack">
-            <li class="stack__card reveal" data-reveal>
-              <span class="stack__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="28" height="28"><path d="M3 2h18l-1.6 18L12 22l-7.4-2L3 2Zm5.5 7.5h7.2l-.2 2H9.2l.2 2.2h6.2l-.4 4.4L12 19l-3.2-.9-.2-2.2h2.2l.1 1 1.1.3 1.1-.3.1-1.2H7.9l-.5-5.2h8.3l.2-1.9H8.7l-.2-.5Z" fill="currentColor"/></svg>
-              </span>
-              <h3>HTML5</h3>
-              <p>Markup semantico, landmarks, ARIA cuando hace falta.</p>
-            </li>
+          <h1>Construyo <em>productos web</em> con intención.</h1>
 
-            <li class="stack__card reveal" data-reveal>
-              <span class="stack__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="28" height="28"><path d="M3 2h18l-1.6 18L12 22l-7.4-2L3 2Zm13.9 5.5H8.1l.2 2.2h8.4l-.5 5.5-4.2 1.2-4.2-1.2-.3-2.8h2.1l.1 1.4 2.3.6 2.3-.6.2-2.6H7.8l-.5-5.7h9.8l-.2 1.9Z" fill="currentColor"/></svg>
-              </span>
-              <h3>CSS3</h3>
-              <p>Grid, Flexbox, custom properties, clamp, container queries.</p>
-            </li>
-
-            <li class="stack__card reveal" data-reveal>
-              <span class="stack__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="28" height="28"><rect x="3" y="3" width="18" height="18" rx="1" fill="currentColor" opacity=".15"/><path d="M13.3 17.2c.4.7 1 1.1 2 1.1 1 0 1.6-.5 1.6-1.1 0-.8-.6-1-1.7-1.5l-.6-.3c-1.7-.7-2.9-1.6-2.9-3.5 0-1.8 1.4-3.1 3.5-3.1 1.5 0 2.6.5 3.4 1.9l-1.9 1.2c-.4-.7-.9-1-1.6-1-.7 0-1.1.4-1.1 1 0 .7.4 1 1.4 1.4l.6.3c2 .9 3.2 1.7 3.2 3.6 0 2.2-1.7 3.3-4 3.3-2.3 0-3.7-1.1-4.4-2.5l1.9-1.1Zm-7.8.2c.3.6.6 1 1.4 1 .8 0 1.3-.3 1.3-1.5V9h2.3v7.9c0 2.4-1.4 3.5-3.5 3.5-1.9 0-3-1-3.6-2.1l1.9-1.1Z" fill="currentColor"/></svg>
-              </span>
-              <h3>JavaScript</h3>
-              <p>ES2022+, APIs del navegador, DOM, fetch, observers.</p>
-            </li>
-
-            <li class="stack__card reveal" data-reveal>
-              <span class="stack__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="28" height="28"><path d="m21.6 11.3-8.9-8.9a1 1 0 0 0-1.4 0L9.4 4.3l2.3 2.3a1.2 1.2 0 0 1 1.5 1.5l2.2 2.2a1.2 1.2 0 1 1-.7.7l-2-2v5.4a1.2 1.2 0 1 1-1 0V8.8a1.2 1.2 0 0 1-.7-1.5L8.7 5 2.4 11.3a1 1 0 0 0 0 1.4l8.9 8.9a1 1 0 0 0 1.4 0l8.9-8.9a1 1 0 0 0 0-1.4Z" fill="currentColor"/></svg>
-              </span>
-              <h3>Git</h3>
-              <p>Branching, commits atomicos, pull requests con contexto.</p>
-            </li>
-
-            <li class="stack__card reveal" data-reveal>
-              <span class="stack__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="28" height="28"><path d="M4 5h16v2H4zM4 11h16v2H4zM4 17h10v2H4z" fill="currentColor"/></svg>
-              </span>
-              <h3>Figma</h3>
-              <p>Leo specs, extraigo tokens, traduzco disenio a codigo.</p>
-            </li>
-
-            <li class="stack__card reveal" data-reveal>
-              <span class="stack__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="28" height="28"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
-              </span>
-              <h3>Web a11y</h3>
-              <p>Contraste, navegacion por teclado, lectores de pantalla.</p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-            <!-- PROYECTOS -->
-      <section class="section" id="proyectos">
-        <div class="container">
-          <header class="section__head reveal" data-reveal>
-            <span class="section__num">03</span>
-            <h2 class="section__title">Proyectos destacados</h2>
-            <span class="section__rule" aria-hidden="true"></span>
-          </header>
-
-          <p class="section__lede reveal" data-reveal>
-            Una seleccion pequenia de cosas construidas desde cero, sin frameworks.
+          <p class="hero__lead">
+            Soy Santiago Ruiz, builder junior desde Cali. Convierto necesidades concretas
+            en interfaces claras, rápidas y mantenibles con HTML, CSS y JavaScript.
           </p>
 
-          <ul class="projects">
-            <li class="project reveal" data-reveal>
-              <a class="project__media" href="#" aria-label="Abrir demo de Cafe del Valle">
-                <img
-                  src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=70"
-                  alt="Preview de la landing page Cafe del Valle"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="560"
-                />
-                <span class="project__overlay" aria-hidden="true">
-                  <span class="project__overlay-text">Ver demo</span>
-                </span>
-              </a>
-              <div class="project__body">
-                <p class="project__kicker">Landing · 2026</p>
-                <h3 class="project__title">Cafe del Valle</h3>
-                <p class="project__desc">
-                  Landing para una tostadora de cafe de origen en Antioquia.
-                  Hero con scroll parallax sutil, menu responsive y formulario accesible.
-                </p>
-                <ul class="tags">
-                  <li>HTML</li>
-                  <li>CSS Grid</li>
-                  <li>JS</li>
-                  <li>A11y</li>
-                </ul>
-                <div class="project__links">
-                  <a href="#" rel="noopener">Demo</a>
-                  <a href="#" rel="noopener">Codigo</a>
-                </div>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#proyectos">Ver proyectos</a>
+            <a class="btn btn--ghost" href="#contacto">Contacto</a>
+          </div>
+
+          <dl class="hero__stats">
+            <div>
+              <dt>Base</dt>
+              <dd>Cali, Colombia</dd>
+            </div>
+            <div>
+              <dt>Enfoque</dt>
+              <dd>Producto web</dd>
+            </div>
+            <div>
+              <dt>Disponibilidad</dt>
+              <dd>Abierta</dd>
+            </div>
+          </dl>
+        </div>
+
+        <aside class="hero__card" data-reveal aria-label="Fragmento de código de presentación">
+          <div class="code-head">
+            <span class="code-dot code-dot--red"></span>
+            <span class="code-dot code-dot--yellow"></span>
+            <span class="code-dot code-dot--green"></span>
+            <span class="code-head__name">perfil.js</span>
+          </div>
+          <pre><code><span class="tok-com">// perfil.js</span>
+<span class="tok-key">const</span> santiago = {
+  rol: <span class="tok-str">"builder developer jr"</span>,
+  base: <span class="tok-str">"Cali, Colombia"</span>,
+  stack: [<span class="tok-str">"HTML"</span>, <span class="tok-str">"CSS"</span>, <span class="tok-str">"JS"</span>],
+  enfoque: <span class="tok-str">"producto web"</span>,
+  disponible: <span class="tok-num">true</span>,
+};
+
+<span class="tok-key">function</span> <span class="tok-fn">construir</span>(idea) {
+  <span class="tok-key">return</span> { ...idea, enProduccion: <span class="tok-num">true</span> };
+}</code></pre>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="sobre-mi">
+      <div class="container about__grid">
+        <div class="section__head" data-reveal>
+          <p class="eyebrow">01 — Sobre mí</p>
+          <h2>Curiosidad primero, código después.</h2>
+        </div>
+
+        <div class="about__body" data-reveal>
+          <p>
+            Empecé en la web porque quería entender cómo funcionaban las cosas que usaba
+            todos los días. Hoy disfruto el proceso de tomar una idea difusa y convertirla
+            en algo que se pueda usar, probar y mejorar.
+          </p>
+          <p>
+            Me interesa el producto completo: la estructura, el detalle visual, la
+            accesibilidad y el rendimiento. Trabajo con <strong>HTML semántico</strong>,
+            <strong>CSS a mano</strong> y <strong>JavaScript sin dependencias</strong>
+            cuando el proyecto lo permite.
+          </p>
+          <p>
+            Estoy en búsqueda de mi primera oportunidad profesional, con espacio para
+            aprender rápido y aportar desde el primer día.
+          </p>
+
+          <dl class="about__facts">
+            <div>
+              <dt>Ubicación</dt>
+              <dd>Cali, Colombia</dd>
+            </div>
+            <div>
+              <dt>Rol</dt>
+              <dd>Builder Developer Jr.</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>HTML · CSS · JS</dd>
+            </div>
+            <div>
+              <dt>Idiomas</dt>
+              <dd>Español · Inglés</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="stack">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="eyebrow">02 — Stack</p>
+          <h2>Herramientas con las que trabajo.</h2>
+          <p>Lo que uso a diario, lo que me acompaña en el proceso y lo que estoy explorando.</p>
+        </div>
+
+        <div class="stack__grid">
+          <article class="stack-card" data-reveal>
+            <span class="stack-card__icon" aria-hidden="true">&lt;/&gt;</span>
+            <h3>Frontend</h3>
+            <p>Interfaces responsivas, semánticas y accesibles, construidas desde cero.</p>
+            <div class="stack-card__tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Responsive</span>
+              <span class="tag">Accesibilidad</span>
+            </div>
+          </article>
+
+          <article class="stack-card" data-reveal>
+            <span class="stack-card__icon" aria-hidden="true">git</span>
+            <h3>Herramientas</h3>
+            <p>Control de versiones, edición de código y publicación de sitios estáticos.</p>
+            <div class="stack-card__tags">
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">VS Code</span>
+              <span class="tag">Figma</span>
+              <span class="tag">GitHub Pages</span>
+            </div>
+          </article>
+
+          <article class="stack-card" data-reveal>
+            <span class="stack-card__icon" aria-hidden="true">+</span>
+            <h3>Explorando</h3>
+            <p>Las siguientes piezas del rompecabezas que quiero dominar este año.</p>
+            <div class="stack-card__tags">
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">APIs</span>
+              <span class="tag">Testing</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proyectos">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="eyebrow">03 — Proyectos</p>
+          <h2>Cosas que he construido.</h2>
+          <p>Una selección de proyectos donde puse en práctica lo que aprendo.</p>
+        </div>
+
+        <div class="projects__grid">
+          <article class="project" data-reveal>
+            <div class="project__thumb" aria-hidden="true">
+              <span class="project__num">01</span>
+            </div>
+            <div class="project__body">
+              <div class="project__top">
+                <h3>Portafolio personal</h3>
+                <span class="badge">Destacado</span>
               </div>
-            </li>
-            <!-- Duplicá este <li> otras 3 veces, cambiando texto e imagen -->
-          </ul>
-        </div>
-      </section>
-
-
-            <!-- EXPERIENCIA -->
-      <section class="section" id="experiencia">
-        <div class="container">
-          <header class="section__head reveal" data-reveal>
-            <span class="section__num">04</span>
-            <h2 class="section__title">Experiencia & formacion</h2>
-            <span class="section__rule" aria-hidden="true"></span>
-          </header>
-
-          <ol class="timeline">
-            <li class="timeline__item reveal" data-reveal>
-              <span class="timeline__dot" aria-hidden="true"></span>
-              <p class="timeline__date">2026 · Actualidad</p>
-              <h3 class="timeline__title">Frontend Developer Jr. · Freelance</h3>
-              <p class="timeline__desc">
-                Desarrollo landing pages y pequenias herramientas internas para pymes locales.
-                Entrego sitios rapidos, accesibles y mantenibles, sin frameworks cuando no son necesarios.
+              <p>
+                Sitio estático de una página con tema oscuro, navegación por anclas,
+                menú móvil y animaciones de aparición. Sin frameworks ni build.
               </p>
-            </li>
-            <li class="timeline__item reveal" data-reveal>
-              <span class="timeline__dot" aria-hidden="true"></span>
-              <p class="timeline__date">2025</p>
-              <h3 class="timeline__title">Bootcamp Frontend · GameCode</h3>
-              <p class="timeline__desc">
-                Completo los cursos de HTML, CSS y JavaScript.
-                Termino en el top 5% del ranking y recibo la certificacion de "Explorer of the Web".
-              </p>
-            </li>
-            <li class="timeline__item reveal" data-reveal>
-              <span class="timeline__dot" aria-hidden="true"></span>
-              <p class="timeline__date">2024</p>
-              <h3 class="timeline__title">Tecnico en Sistemas · SENA</h3>
-              <p class="timeline__desc">
-                Fundamentos de logica de programacion, bases de datos y arquitectura web.
-              </p>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="section section--contact" id="contacto">
-        <div class="container">
-          <header class="section__head reveal" data-reveal>
-            <span class="section__num">05</span>
-            <h2 class="section__title">Hablemos</h2>
-            <span class="section__rule" aria-hidden="true"></span>
-          </header>
-
-          <div class="contact reveal" data-reveal>
-            <h3 class="contact__headline">
-              <span class="contact__serif">Tengo espacio</span> para un nuevo proyecto en 2026.
-            </h3>
-            <p class="contact__desc">
-              Si estas armando algo y te gusta lo que ves, escribime.
-              Respondo en menos de 24 horas (cafe-intake permitting).
-            </p>
-
-            <div class="contact__row">
-              <a class="btn btn--primary btn--large" href="mailto:ruizgallegosantiago896@gmail.com">
-                ruizgallegosantiago896@gmail.com
-              </a>
-              <button
-                class="btn btn--ghost btn--large"
-                type="button"
-                data-copy-email="ruizgallegosantiago896@gmail.com"
-                aria-label="Copiar email al portapapeles"
-              >
-                <span data-copy-label>Copiar email</span>
-              </button>
+              <div class="project__tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
             </div>
+            <a
+              class="project__link"
+              href="https://github.com/ruizexel/portafolio_santiago_ruiz"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ver el repositorio del portafolio en GitHub"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7" />
+                <path d="M7 7h10v10" />
+              </svg>
+            </a>
+          </article>
 
-            <ul class="socials" aria-label="Enlaces a redes">
-              <li><a href="https://github.com/ruizexel" rel="noopener">GitHub</a></li>
-              <li><a href="mailto:ruizgallegosantiago896@gmail.com">Email</a></li>
-            </ul>
+          <article class="project" data-reveal>
+            <div class="project__thumb project__thumb--alt" aria-hidden="true">
+              <span class="project__num">02</span>
+            </div>
+            <div class="project__body">
+              <div class="project__top">
+                <h3>Gestor de tareas</h3>
+              </div>
+              <p>
+                Aplicación para organizar pendientes con estados, filtros y persistencia
+                local. Enfocada en una interacción simple y sin fricción.
+              </p>
+              <div class="project__tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">LocalStorage</span>
+                <span class="tag">CSS</span>
+              </div>
+            </div>
+            <a
+              class="project__link"
+              href="https://github.com/ruizexel"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ver el proyecto gestor de tareas en GitHub"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7" />
+                <path d="M7 7h10v10" />
+              </svg>
+            </a>
+          </article>
+
+          <article class="project" data-reveal>
+            <div class="project__thumb project__thumb--alt-2" aria-hidden="true">
+              <span class="project__num">03</span>
+            </div>
+            <div class="project__body">
+              <div class="project__top">
+                <h3>Landing de producto</h3>
+              </div>
+              <p>
+                Página de presentación con jerarquía clara, secciones modulares y
+                llamados a la acción medibles. Diseñada para cargar rápido.
+              </p>
+              <div class="project__tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Diseño</span>
+              </div>
+            </div>
+            <a
+              class="project__link"
+              href="https://github.com/ruizexel"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ver el proyecto landing de producto en GitHub"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7" />
+                <path d="M7 7h10v10" />
+              </svg>
+            </a>
+          </article>
+        </div>
+
+        <div class="projects__more" data-reveal>
+          <a class="btn btn--ghost" href="https://github.com/ruizexel" target="_blank" rel="noopener noreferrer">
+            Ver más en GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="experiencia">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="eyebrow">04 — Experiencia</p>
+          <h2>Trayectoria hasta ahora.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline__item" data-reveal>
+            <p class="timeline__date">2026</p>
+            <div class="timeline__body">
+              <h3>Builder independiente</h3>
+              <p>
+                Diseño y desarrollo sitios y herramientas web para necesidades concretas,
+                cuidando estructura, accesibilidad y rendimiento.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item" data-reveal>
+            <p class="timeline__date">2025</p>
+            <div class="timeline__body">
+              <h3>Proyectos personales</h3>
+              <p>
+                Iteré sobre interfaces reales, aprendí a leer documentación, a depurar en
+                el navegador y a publicar con GitHub Pages.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item" data-reveal>
+            <p class="timeline__date">2024</p>
+            <div class="timeline__body">
+              <h3>Fundamentos</h3>
+              <p>
+                Empecé con HTML, CSS y JavaScript desde cero. La base sigue siendo la
+                misma: entender el problema antes de escribir la primera línea.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contacto">
+      <div class="container">
+        <div class="contact__card" data-reveal>
+          <p class="eyebrow">05 — Contacto</p>
+          <h2>¿Construimos algo juntos?</h2>
+          <p>
+            Si tienes una idea, una necesidad concreta o un proyecto en mente, escríbeme.
+            Respondo en menos de 48 horas.
+          </p>
+          <div class="contact__actions">
+            <button class="btn btn--primary" type="button" data-copy-email="hola@santiagoruiz.dev">
+              Copiar email
+            </button>
+            <a class="btn btn--ghost" href="mailto:hola@santiagoruiz.dev">Escribir correo</a>
+          </div>
+          <div class="contact__socials">
+            <a href="https://github.com/ruizexel" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="mailto:hola@santiagoruiz.dev">Correo</a>
+            <a href="#inicio">Volver arriba ↑</a>
           </div>
         </div>
-      </section>
-      
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="container footer__inner">
-        <p class="footer__copy">
-          &copy; <span data-year>2026</span> Santiago Ruiz · Hecho a mano con
-          <abbr title="HyperText Markup Language">HTML</abbr>,
-          <abbr title="Cascading Style Sheets">CSS</abbr> y
-          <abbr title="JavaScript">JS</abbr>.
-        </p>
-        <p class="footer__note">
-          <a href="https://github.com/ruizexel" rel="noopener">Codigo en GitHub</a>
-          <span class="footer__sep" aria-hidden="true">·</span>
-          <a href="#top">Volver arriba</a>
-        </p>
       </div>
-    </footer>
+    </section>
+  </main>
 
-    <!-- Toast para feedback al copiar -->
-    <div class="toast" data-toast role="status" aria-live="polite"></div>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a class="nav__logo" href="#inicio" aria-label="Santiago Ruiz, volver al inicio">SR<span>.</span></a>
+      <p>© <span data-year>2026</span> Santiago Ruiz. Hecho a mano con HTML, CSS y JS.</p>
+      <div class="footer__links">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+        <a href="https://github.com/ruizexel" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
 
-    <script src="scripts.js?v=4" defer></script>
-
-    
-
-    
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
 </body>
 </html>
