@@ -1,7 +1,8 @@
 /* ============================================================================
    Datos de los proyectos.
-   Fuente única de verdad para el index y para las páginas /proyectos/:slug.
-   Los slugs forman una allowlist: una ruta solo existe si está en este arreglo.
+   - Alimenta las tarjetas del index, el pager y las páginas dinámicas.
+   - Los slugs forman una allowlist: una ruta solo existe si está en este arreglo.
+   - Un proyecto con `html` sirve su propia página desde routes/proyectos.js.
    ============================================================================ */
 
 "use strict";
@@ -10,124 +11,7 @@ const proyectos = [
   {
     slug: "planificador-eventos",
     title: "Planificador de Eventos",
-    version: "MVP · Sprint 1",
-    period: "2026",
-    status: "MVP desplegado en Vercel + Render",
-    summary:
-      "MVP fullstack para organizadores independientes: crear eventos, desglosar el plan logístico en subtareas y controlar cuántas horas caben en cada día. Frontend React/Vite, API Spring Boot y PostgreSQL en Supabase.",
-    context:
-      "Organizar un evento implica coordinar muchas subtareas y evitar que la agenda diaria se desborde. El proyecto centraliza eventos, subtareas y capacidad diaria en una sola aplicación, con una API que aplica las reglas de negocio y un cliente que solo refleja datos persistidos.",
-    role: "Fullstack: interfaz React, API REST en Spring Boot, modelo de datos en PostgreSQL (Supabase), autenticación JWT y despliegue en Vercel + Render.",
-    challenge:
-      "Mantener consistente el cupo diario cuando se crean, editan o reprograman subtareas, sin que frontend y backend calculen reglas distintas.",
-    solution:
-      "API stateless con JWT y aislamiento por propietario; validación del límite diario de 1–16 h; respuesta 409 con el excedente cuando una operación no cabe; reducción de horas siempre permitida; Swagger para documentar el contrato y frontend que solo actualiza la vista tras una respuesta persistida.",
-    result:
-      "MVP desplegado de punta a punta: frontend en Vercel, API en Render y PostgreSQL en Supabase. Health check, Swagger y datos reales verificados; los flujos de creación, detalle, panel del día y progreso quedan operativos.",
-    tags: ["React", "Spring Boot", "PostgreSQL", "JWT", "Docker"],
-    stack: [
-      "React 19",
-      "Vite 8",
-      "React Router 7",
-      "Tailwind CSS 4",
-      "Java 21",
-      "Spring Boot 4.1.1",
-      "Spring Data JPA",
-      "PostgreSQL",
-      "Supabase",
-      "Docker",
-      "Vercel",
-      "Render",
-    ],
-    stackGroups: [
-      {
-        label: "Frontend",
-        items: ["React 19", "Vite 8", "React Router 7", "Tailwind CSS 4", "oxlint", "Prettier"],
-      },
-      {
-        label: "Backend",
-        items: [
-          "Java 21",
-          "Spring Boot 4.1.1",
-          "Spring Data JPA / Hibernate",
-          "Bean Validation",
-          "JWT",
-          "springdoc-openapi",
-        ],
-      },
-      {
-        label: "Datos e infraestructura",
-        items: ["PostgreSQL (Supabase)", "Docker", "Render", "Vercel"],
-      },
-    ],
-    highlights: [
-      {
-        title: "Límite diario de 1–16 h",
-        description:
-          "Solo las subtareas pendientes y pospuestas consumen cupo; las ejecutadas no. La regla se valida al crear, editar y reprogramar.",
-      },
-      {
-        title: "Conflicto 409 con excedente",
-        description:
-          "Si una operación supera el cupo, la API no guarda nada y devuelve cuántas horas hay que liberar.",
-      },
-      {
-        title: "Aislamiento por propietario",
-        description:
-          "El token define al dueño de los datos; los recursos ajenos responden 404 y los repositorios no exponen findAll ni findById.",
-      },
-      {
-        title: "Despliegue verificable",
-        description:
-          "Frontend en Vercel, API en Render y PostgreSQL en Supabase, con /api/health y Swagger para validar la cadena completa.",
-      },
-    ],
-    gallery: [
-      {
-        src: "/img/planificador_eventos/hoy.png",
-        alt: "Panel del día con las gestiones pendientes y vencidas.",
-        caption: "Panel del día",
-      },
-      {
-        src: "/img/planificador_eventos/progreso.png",
-        alt: "Vista de progreso por evento con el avance de las subtareas.",
-        caption: "Progreso por evento",
-      },
-      {
-        src: "/img/planificador_eventos/crearEvento.png",
-        alt: "Formulario de creación de evento con horas estimadas.",
-        caption: "Creación de evento",
-      },
-      {
-        src: "/img/planificador_eventos/configuracion.png",
-        alt: "Configuración del límite diario de horas del organizador.",
-        caption: "Límite diario",
-      },
-      {
-        src: "/img/planificador_eventos/login.png",
-        alt: "Pantalla de acceso de organizadores con autenticación JWT.",
-        caption: "Acceso con JWT",
-      },
-    ],
-    demo: "https://planificador-eventos-frontend-ten.vercel.app",
-    demoKey: "",
-    repo: "#",
-    repoKey: "repo-planificador-frontend",
-    extraLinks: [
-      {
-        label: "API en Render",
-        href: "https://planificador-eventos-backend-1.onrender.com",
-      },
-      {
-        label: "Swagger UI",
-        href: "https://planificador-eventos-backend-1.onrender.com/swagger-ui.html",
-      },
-      {
-        label: "Repo backend",
-        href: "#",
-        todo: "repo-planificador-backend",
-      },
-    ],
+    html: "planificadorEventos.html",
   },
   {
     slug: "victus-caf",

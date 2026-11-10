@@ -2,7 +2,7 @@
 
 Portafolio personal de Santiago Ruiz: Express + HTML semántico + Tailwind CSS v4 + JavaScript vanilla.
 Sin frameworks de UI, sin bundler y sin tests. El CSS propio vive en carpetas con atomic design.
-Las páginas de proyecto se renderizan en el servidor con Express.
+Las páginas de proyecto se sirven con Express: HTML propio o template dinámico.
 
 ## Comandos
 
@@ -20,10 +20,12 @@ Las páginas de proyecto se renderizan en el servidor con Express.
 ```
 index.html                  landing; secciones #inicio, #sobre-mi, #stack, #proyectos, #contacto
 index.js                    módulos init*() del cliente, llamados desde DOMContentLoaded
+planificadorEventos.html    página completa y descentralizada del Planificador de Eventos
 server.js                   Express: cabeceras, assets allowlisted, /img y fallback al index
-routes/proyectos.js         router de /proyectos y /proyectos/:slug (allowlist de data/)
-data/proyectos.js           datos allowlisted de los proyectos (contenido, stack, galería, enlaces)
-views/proyecto.js           plantilla SSR de /proyectos/:slug; escapa todos los valores
+routes/proyectos.js         router de /proyectos y /:proyecto (allowlist de data/)
+data/proyectos.js           datos de tarjetas, pager y páginas dinámicas
+data/imagenes.js            allowlist de rutas servidas por /img
+views/proyecto.js           plantilla SSR de las páginas dinámicas; escapa todos los valores
 package.json                scripts dev/build/start y dependencias
 styles/
   main.css                  entrada: @import "tailwindcss" + todos los parciales
@@ -70,13 +72,13 @@ AGENTS.md                   este archivo
 - `.reveal--armed` la agrega `index.js` solo si existe `IntersectionObserver` y el usuario no pidió movimiento reducido. Sin JS el contenido queda visible; mantén ese patrón.
 - Hooks `data-*` en uso: `data-nav`, `data-menu-toggle`, `data-mobile-menu`, `data-nav-link`, `data-reveal`, `data-contact-form`, `data-form-status`, `data-form-message`, `data-year`. Cada `init*()` sale temprano si su hook no existe.
 - El menú móvil se controla con `aria-expanded`, `aria-controls="mobile-menu"` y la clase `is-open`; el breakpoint es `48rem`.
-- Cada proyecto tiene su ruta `/proyectos/:slug`. `data/proyectos.js` es la allowlist: un slug inexistente cae al index. El index enlaza con anclas `.project-card__more` (diseño de botón) y `views/proyecto.js` escapa todos los valores antes de renderizar. `/proyectos` sin slug redirige 301 a `/#proyectos`.
-- Las capturas se sirven por `/img` solo si su ruta está declarada en `gallery` de `data/proyectos.js`; cualquier otra cae al fallback. Para agregar imágenes, decláralas primero en la galería del proyecto.
-- Campos opcionales de proyecto: `gallery` (`src`, `alt`, `caption`), `highlights` (`title`, `description`), `stackGroups` (`label`, `items`) y `extraLinks` (`label`, `href`, `todo`). `views/proyecto.js` solo los renderiza si existen; `data-todo` se emite únicamente cuando la clave no está vacía.
+- Cada proyecto se sirve en `/:proyecto`. `routes/proyectos.js` decide con una allowlist: si el proyecto tiene `html` en `data/proyectos.js` sirve ese archivo; si existe en los datos renderiza el template dinámico; si no, cae al index. `/proyectos/:slug` redirige 301 a `/:slug` y `/proyectos` a `/#proyectos`. El index enlaza con anclas `.project-card__more` (diseño de botón) y `views/proyecto.js` escapa todos los valores antes de renderizar.
+- Las capturas se sirven por `/img` solo si su ruta está declarada en `data/imagenes.js`; cualquier otra cae al fallback. Para agregar imágenes, decláralas primero en ese archivo.
+- Campos opcionales de proyecto para páginas dinámicas: `gallery` (`src`, `alt`, `caption`), `highlights` (`title`, `description`), `stackGroups` (`label`, `items`) y `extraLinks` (`label`, `href`, `todo`). `views/proyecto.js` solo los renderiza si existen; `data-todo` se emite únicamente cuando la clave no está vacía.
 - `index.html` tiene placeholders marcados con `data-todo` (CV, correo, GitHub, LinkedIn, GPG, demos y repos de proyectos). Santiago los completa personalmente antes de publicar.
 - El formulario solo valida y muestra un mensaje local; no envía datos. Para producción hay que conectarlo a Formspree, Netlify Forms o un endpoint propio.
-- El sitio se sirve con Express (`npm start`) en un host Node (Render, Railway, VPS). El dominio apunta al host. GitHub Pages ya no cubre `/proyectos/*`; para volver a estático habría que generar esas páginas.
-- Seguridad base en `server.js`: `x-powered-by` desactivado, CSP, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, assets con allowlist explícita, `/img` limitado a las galerías y fallback al index. No se sirve el resto del repositorio (`server.js`, `data/`, `views/`).
+- El sitio se sirve con Express (`npm start`) en un host Node (Render, Railway, VPS). El dominio apunta al host. GitHub Pages ya no cubre `/:proyecto`; para volver a estático habría que generar esas páginas.
+- Seguridad base en `server.js`: `x-powered-by` desactivado, CSP, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, assets con allowlist explícita, `/img` limitado a `data/imagenes.js` y fallback al index. No se sirve el resto del repositorio (`server.js`, `data/`, `views/`).
 - Commits en español, siguiendo el estilo de los mensajes existentes.
 
 ## Convenciones

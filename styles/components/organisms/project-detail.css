@@ -1,6 +1,6 @@
 /* ============================================================================
    ORGANISMO · Página de detalle de proyecto
-   Se renderiza en /proyectos/:slug desde views/proyecto.js.
+   Se usa en las páginas de proyecto: HTML propio y template dinámico.
    ============================================================================ */
 
 @layer components {

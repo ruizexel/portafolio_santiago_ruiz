@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Planificador de Eventos | Santiago Ruiz</title>
+  <meta name="description" content="MVP fullstack para organizadores independientes: crear eventos, desglosar el plan logístico en subtareas y controlar cuántas horas caben en cada día.">
+  <meta name="theme-color" content="#0d0f10">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230d0f10'/%3E%3Cpath d='M9 11h14M9 16h14M9 21h9' stroke='%234ac7a0' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles/build.css?v=4">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" data-nav>
+    <div class="container site-header__inner flex items-center gap-4 min-h-16">
+      <a class="brand" href="/#inicio">
+        Santiago Ruiz
+        <span class="badge">Fullstack · Backend</span>
+      </a>
+
+      <nav class="site-nav hidden md:block mx-auto" aria-label="Navegación principal">
+        <ul class="flex items-center gap-4 lg:gap-8" role="list">
+          <li><a class="nav-link" href="/#inicio">Inicio</a></li>
+          <li><a class="nav-link" href="/#sobre-mi">Sobre mí</a></li>
+          <li><a class="nav-link" href="/#stack">Stack</a></li>
+          <li><a class="nav-link" href="/#proyectos">Proyectos</a></li>
+          <li><a class="nav-link" href="/#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions flex items-center gap-2 ms-auto md:ms-0">
+        <a class="btn btn--outline site-header__cv hidden md:inline-flex" href="https://docs.google.com/document/d/13W79GPKaEl94FsCbUBVxR3oUgOZBWl1GejITNmlsciw/edit?usp=sharing" data-todo="cv">
+          Ver CV
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
+          </svg>
+        </a>
+
+        <button class="nav-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+          <svg class="icon nav-toggle__open" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg class="icon nav-toggle__close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Navegación móvil">
+      <ul role="list">
+        <li><a href="/#inicio">Inicio</a></li>
+        <li><a href="/#sobre-mi">Sobre mí</a></li>
+        <li><a href="/#stack">Stack</a></li>
+        <li><a href="/#proyectos">Proyectos</a></li>
+        <li><a href="/#contacto">Contacto</a></li>
+        <li>
+          <a class="btn btn--outline btn--block" href="https://docs.google.com/document/d/13W79GPKaEl94FsCbUBVxR3oUgOZBWl1GejITNmlsciw/edit?usp=sharing" data-todo="cv">Ver CV</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido" class="pt-16" tabindex="-1">
+    <article class="project-detail" aria-labelledby="proyecto-title">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+          <a href="/">Inicio</a>
+          <span aria-hidden="true">/</span>
+          <a href="/#proyectos">Proyectos</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Planificador de Eventos</span>
+        </nav>
+
+        <header class="project-detail__hero">
+          <p class="project-detail__eyebrow">
+            <span class="badge badge--signal">MVP · Sprint 1</span>
+            <span>2026</span>
+          </p>
+
+          <h1 class="project-detail__title" id="proyecto-title">Planificador de Eventos</h1>
+          <p class="project-detail__summary">
+            MVP fullstack para organizadores independientes: crear eventos, desglosar el plan logístico
+            en subtareas y controlar cuántas horas caben en cada día. Frontend React/Vite, API Spring Boot
+            y PostgreSQL en Supabase.
+          </p>
+
+          <ul class="tag-list" role="list">
+            <li class="tag tag--accent">React</li>
+            <li class="tag">Spring Boot</li>
+            <li class="tag">PostgreSQL</li>
+            <li class="tag tag--accent">JWT</li>
+            <li class="tag">Docker</li>
+          </ul>
+
+          <div class="project-detail__actions">
+            <a class="btn btn--primary" href="https://planificador-eventos-frontend-ten.vercel.app">
+              Ver demo
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </a>
+            <a class="btn btn--outline" href="#" data-todo="repo-planificador-frontend">
+              Ver repositorio
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </a>
+            <a class="btn btn--outline" href="/#proyectos">
+              Volver a proyectos
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>
+              </svg>
+            </a>
+          </div>
+        </header>
+
+        <section class="project-detail__gallery" aria-labelledby="capturas-title">
+          <h2 id="capturas-title">Capturas</h2>
+          <div class="project-detail__gallery-grid">
+            <figure class="project-detail__shot">
+              <img src="/img/planificador_eventos/hoy.png" alt="Panel del día con las gestiones pendientes y vencidas." loading="lazy" decoding="async">
+              <figcaption>Panel del día</figcaption>
+            </figure>
+            <figure class="project-detail__shot">
+              <img src="/img/planificador_eventos/progreso.png" alt="Vista de progreso por evento con el avance de las subtareas." loading="lazy" decoding="async">
+              <figcaption>Progreso por evento</figcaption>
+            </figure>
+            <figure class="project-detail__shot">
+              <img src="/img/planificador_eventos/crearEvento.png" alt="Formulario de creación de evento con horas estimadas." loading="lazy" decoding="async">
+              <figcaption>Creación de evento</figcaption>
+            </figure>
+            <figure class="project-detail__shot">
+              <img src="/img/planificador_eventos/configuracion.png" alt="Configuración del límite diario de horas del organizador." loading="lazy" decoding="async">
+              <figcaption>Límite diario</figcaption>
+            </figure>
+            <figure class="project-detail__shot">
+              <img src="/img/planificador_eventos/login.png" alt="Pantalla de acceso de organizadores con autenticación JWT." loading="lazy" decoding="async">
+              <figcaption>Acceso con JWT</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <div class="project-detail__layout">
+          <div class="project-detail__content">
+            <section class="project-detail__section" aria-labelledby="contexto-title">
+              <h2 id="contexto-title">Contexto</h2>
+              <p>
+                Organizar un evento implica coordinar muchas subtareas y evitar que la agenda diaria se
+                desborde. El proyecto centraliza eventos, subtareas y capacidad diaria en una sola
+                aplicación, con una API que aplica las reglas de negocio y un cliente que solo refleja
+                datos persistidos.
+              </p>
+            </section>
+
+            <section class="project-detail__section" aria-labelledby="rol-title">
+              <h2 id="rol-title">Rol</h2>
+              <p>
+                Fullstack: interfaz React, API REST en Spring Boot, modelo de datos en PostgreSQL
+                (Supabase), autenticación JWT y despliegue en Vercel + Render.
+              </p>
+            </section>
+
+            <section class="project-detail__section" aria-labelledby="reto-title">
+              <h2 id="reto-title">Reto</h2>
+              <p>
+                Mantener consistente el cupo diario cuando se crean, editan o reprograman subtareas,
+                sin que frontend y backend calculen reglas distintas.
+              </p>
+            </section>
+
+            <section class="project-detail__section" aria-labelledby="solucion-title">
+              <h2 id="solucion-title">Solución</h2>
+              <p>
+                API stateless con JWT y aislamiento por propietario; validación del límite diario de
+                1–16 h; respuesta 409 con el excedente cuando una operación no cabe; reducción de horas
+                siempre permitida; Swagger para documentar el contrato y frontend que solo actualiza la
+                vista tras una respuesta persistida.
+              </p>
+            </section>
+
+            <section class="project-detail__section" aria-labelledby="resultado-title">
+              <h2 id="resultado-title">Resultado</h2>
+              <p>
+                MVP desplegado de punta a punta: frontend en Vercel, API en Render y PostgreSQL en
+                Supabase. Health check, Swagger y datos reales verificados; los flujos de creación,
+                detalle, panel del día y progreso quedan operativos.
+              </p>
+            </section>
+
+            <section class="project-detail__section" aria-labelledby="aspectos-title">
+              <h2 id="aspectos-title">Aspectos clave</h2>
+              <ul class="project-detail__highlights" role="list">
+                <li class="project-detail__highlight">
+                  <h3>Límite diario de 1–16 h</h3>
+                  <p>Solo las subtareas pendientes y pospuestas consumen cupo; las ejecutadas no. La regla se valida al crear, editar y reprogramar.</p>
+                </li>
+                <li class="project-detail__highlight">
+                  <h3>Conflicto 409 con excedente</h3>
+                  <p>Si una operación supera el cupo, la API no guarda nada y devuelve cuántas horas hay que liberar.</p>
+                </li>
+                <li class="project-detail__highlight">
+                  <h3>Aislamiento por propietario</h3>
+                  <p>El token define al dueño de los datos; los recursos ajenos responden 404 y los repositorios no exponen findAll ni findById.</p>
+                </li>
+                <li class="project-detail__highlight">
+                  <h3>Despliegue verificable</h3>
+                  <p>Frontend en Vercel, API en Render y PostgreSQL en Supabase, con /api/health y Swagger para validar la cadena completa.</p>
+                </li>
+              </ul>
+            </section>
+          </div>
+
+          <aside class="project-detail__aside" aria-labelledby="ficha-title">
+            <h2 id="ficha-title">Ficha del proyecto</h2>
+            <dl class="project-detail__meta">
+              <div>
+                <dt>Rol</dt>
+                <dd>Fullstack: interfaz React, API REST en Spring Boot, modelo de datos en PostgreSQL (Supabase), autenticación JWT y despliegue en Vercel + Render.</dd>
+              </div>
+              <div>
+                <dt>Periodo</dt>
+                <dd>2026</dd>
+              </div>
+              <div>
+                <dt>Estado</dt>
+                <dd>MVP desplegado en Vercel + Render</dd>
+              </div>
+              <div>
+                <dt>Frontend</dt>
+                <dd>React 19 · Vite 8 · React Router 7 · Tailwind CSS 4 · oxlint · Prettier</dd>
+              </div>
+              <div>
+                <dt>Backend</dt>
+                <dd>Java 21 · Spring Boot 4.1.1 · Spring Data JPA / Hibernate · Bean Validation · JWT · springdoc-openapi</dd>
+              </div>
+              <div>
+                <dt>Datos e infraestructura</dt>
+                <dd>PostgreSQL (Supabase) · Docker · Render · Vercel</dd>
+              </div>
+            </dl>
+
+            <div class="project-detail__aside-links">
+              <h3>Enlaces</h3>
+              <ul role="list">
+                <li><a class="project-detail__aside-link" href="https://planificador-eventos-backend-1.onrender.com">API en Render</a></li>
+                <li><a class="project-detail__aside-link" href="https://planificador-eventos-backend-1.onrender.com/swagger-ui.html">Swagger UI</a></li>
+                <li><a class="project-detail__aside-link" href="#" data-todo="repo-planificador-backend">Repo backend</a></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+
+        <nav class="project-detail__pager" aria-label="Otros proyectos">
+          <a href="/reportes-analitica">
+            <span>Proyecto anterior</span>
+            <strong>Motor de Reportes y Analítica</strong>
+          </a>
+          <a href="/victus-caf">
+            <span>Siguiente proyecto</span>
+            <strong>Victus CAF</strong>
+          </a>
+        </nav>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+      <div>
+        <p class="site-footer__status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Disponible para pasantías / proyectos
+        </p>
+        <p class="site-footer__copy">&copy; <span data-year>2026</span> Santiago Ruiz. Desarrollo fullstack con enfoque backend.</p>
+      </div>
+
+      <nav aria-label="Enlaces sociales">
+        <ul class="site-footer__links flex flex-wrap gap-5" role="list">
+          <li><a href="#" data-todo="github">GitHub</a></li>
+          <li><a href="#" data-todo="linkedin">LinkedIn</a></li>
+          <li><a href="#" data-todo="email">Email</a></li>
+          <li><a href="#" data-todo="gpg">GPG</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/index.js?v=4" defer></script>
+</body>
+</html>

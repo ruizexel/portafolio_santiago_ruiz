@@ -316,11 +316,11 @@ function renderProyecto(proyecto, proyectos) {
         </div>
 
         <nav class="project-detail__pager" aria-label="Otros proyectos">
-          <a href="/proyectos/${escapeHtml(previous.slug)}">
+          <a href="/${escapeHtml(previous.slug)}">
             <span>Proyecto anterior</span>
             <strong>${escapeHtml(previous.title)}</strong>
           </a>
-          <a href="/proyectos/${escapeHtml(next.slug)}">
+          <a href="/${escapeHtml(next.slug)}">
             <span>Siguiente proyecto</span>
             <strong>${escapeHtml(next.title)}</strong>
           </a>

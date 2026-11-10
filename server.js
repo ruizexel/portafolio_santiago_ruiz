@@ -1,7 +1,7 @@
 /* ============================================================================
    Servidor Express del portafolio.
    - Sirve el index y los assets compilados con una allowlist explícita.
-   - Renderiza /proyectos/:slug solo si el slug existe en data/proyectos.js.
+   - Sirve /:proyecto desde un HTML propio o desde el template dinámico.
    - Cualquier ruta no reconocida cae al index (fallback tipo SPA).
    ============================================================================ */
 
@@ -9,7 +9,7 @@
 
 const express = require("express");
 const path = require("path");
-const { proyectos } = require("./data/proyectos");
+const { imagenesPermitidas } = require("./data/imagenes");
 const proyectosRouter = require("./routes/proyectos");
 
 const app = express();
@@ -57,21 +57,19 @@ app.get("/styles/build.css", (req, res) =>
   sendAsset(res, path.join(ROOT, "styles", "build.css"))
 );
 
-/* Imágenes: solo se sirven las rutas declaradas en las galerías de los proyectos. */
-const imagenesPermitidas = new Set(
-  proyectos.flatMap((proyecto) => (proyecto.gallery ?? []).map((imagen) => imagen.src))
-);
+/* Imágenes: solo se sirven las rutas declaradas en data/imagenes.js. */
+const imagenes = new Set(imagenesPermitidas);
 
 app.use("/img", (req, res, next) => {
   const src = `/img${req.path}`;
-  if (!imagenesPermitidas.has(src)) return next();
+  if (!imagenes.has(src)) return next();
 
   res.setHeader("Cache-Control", "public, max-age=86400");
   res.sendFile(path.join(ROOT, src));
 });
 
-/* Rutas de proyectos: /proyectos y /proyectos/:slug. */
-app.use("/proyectos", proyectosRouter);
+/* Rutas de proyectos: /proyectos y la ruta variable /:proyecto. */
+app.use(proyectosRouter);
 
 /* Fallback: rutas no reconocidas vuelven al index. */
 app.use((req, res) => sendHtml(res, path.join(ROOT, "index.html")));
