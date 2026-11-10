@@ -1,0 +1,18 @@
+/* ============================================================================
+   ÁTOMO · Punto de estado
+   Único círculo permitido en el sistema.
+   ============================================================================ */
+
+@layer components {
+  .status-dot {
+    flex: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+  }
+
+  .status-dot--signal {
+    background-color: var(--color-signal);
+  }
+}

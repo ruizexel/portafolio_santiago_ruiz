@@ -1,0 +1,32 @@
+/* ============================================================================
+   MOLÉCULA · Ítem de contacto
+   La lista y la fila usan utilidades Tailwind en el HTML.
+   ============================================================================ */
+
+@layer components {
+  .contact-item__icon {
+    margin-block-start: 0.15rem;
+    color: var(--color-accent);
+  }
+
+  .contact-item__label {
+    display: block;
+    margin-block-end: 0.15rem;
+    color: var(--color-ink-dim);
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .contact-item__value {
+    color: var(--color-ink);
+    font-size: 0.875rem;
+    transition: color 0.18s ease;
+    overflow-wrap: anywhere;
+  }
+
+  a.contact-item__value:hover {
+    color: var(--color-accent);
+  }
+}

@@ -1,0 +1,91 @@
+/* ============================================================================
+   ORGANISMO · Menú móvil
+   ============================================================================ */
+
+@layer components {
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm);
+    color: var(--color-ink);
+    cursor: pointer;
+    transition: border-color 0.18s ease, color 0.18s ease;
+  }
+
+  .nav-toggle:hover {
+    border-color: var(--color-line-strong);
+    color: var(--color-accent);
+  }
+
+  .nav-toggle__close {
+    display: none;
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle__open {
+    display: none;
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle__close {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+    border-block-start: 1px solid var(--color-line);
+    background-color: var(--color-canvas);
+  }
+
+  .mobile-menu.is-open {
+    display: block;
+  }
+
+  .mobile-menu ul {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.75rem clamp(1.25rem, 4vw, 3rem) 1.25rem;
+  }
+
+  .mobile-menu a {
+    display: block;
+    padding-block: 0.65rem;
+    border-block-end: 1px solid var(--color-line);
+    color: var(--color-ink-muted);
+    font-size: 0.875rem;
+    transition: color 0.18s ease;
+  }
+
+  .mobile-menu a:hover,
+  .mobile-menu a[aria-current="page"] {
+    color: var(--color-accent);
+  }
+
+  .mobile-menu .btn {
+    display: inline-flex;
+    margin-block-start: 0.75rem;
+    padding-block: 0.7rem;
+    border-block-end: 0;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  @media (min-width: 48rem) {
+    .nav-toggle {
+      display: none;
+    }
+
+    .mobile-menu,
+    .mobile-menu.is-open {
+      display: none;
+    }
+
+    body.menu-open {
+      overflow: auto;
+    }
+  }
+}

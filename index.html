@@ -1,452 +1,787 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="dark" />
-  <meta name="theme-color" content="#0b0c0e" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Santiago Ruiz | Desarrollador Fullstack con enfoque Backend</title>
+  <meta name="description" content="Portafolio de Santiago Ruiz, desarrollador fullstack en formación con enfoque backend. Java, Spring Boot, NestJS, Next.js y arquitectura de sistemas.">
+  <meta name="theme-color" content="#0d0f10">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230d0f10'/%3E%3Cpath d='M9 11h14M9 16h14M9 21h9' stroke='%234ac7a0' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
 
-  <title>Santiago Ruiz — Builder Developer Jr.</title>
-  <meta
-    name="description"
-    content="Portafolio de Santiago Ruiz, builder junior desde Cali. Construyo sistemas y productos web con HTML, CSS y JavaScript."
-  />
-  <meta name="author" content="Santiago Ruiz" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Santiago Ruiz — Builder Developer Jr." />
-  <meta
-    property="og:description"
-    content="Portafolio personal. HTML, CSS y JavaScript. Construido a mano, con intención."
-  />
-  <meta property="og:locale" content="es_CO" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Santiago Ruiz — Builder Developer Jr." />
-  <meta
-    name="twitter:description"
-    content="Portafolio personal. HTML, CSS y JavaScript. Construido a mano, con intención."
-  />
-
-  <link
-    rel="icon"
-    type="image/svg+xml"
-    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='12' fill='%237ee6c8'/><circle cx='20' cy='14' r='10' fill='%230b0c0e'/></svg>"
-  />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="stylesheet" href="styles/styless.css?v=1" />
-  <noscript>
-    <style>
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-    </style>
-  </noscript>
-  <script src="scripts.js?v=1" defer></script>
+  <link rel="stylesheet" href="/styles/build.css?v=4">
 </head>
 <body>
-  <a class="skip-link" href="#main">Saltar al contenido</a>
-  <div class="grain" aria-hidden="true"></div>
+  <!--
+    TODO (Santiago): completar antes de publicar.
+    - Enlaces de CV, GitHub, LinkedIn, correo, GPG, demos y repos de proyectos: buscar `data-todo`.
+    - Verificar que el correo institucional y los usuarios sean reales.
+    - Reemplazar los placeholders 16:9 de los proyectos por capturas reales.
+    - Conectar el formulario a un servicio (Formspree/Netlify) o dejarlo como mailto.
+  -->
 
-  <header class="nav" data-nav>
-    <div class="container nav__inner">
-      <a class="nav__logo" href="#inicio" aria-label="Santiago Ruiz, ir al inicio">SR<span>.</span></a>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-      <nav class="nav__links" aria-label="Navegación principal">
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#stack">Stack</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#experiencia">Experiencia</a>
+  <header class="site-header" data-nav>
+    <div class="container site-header__inner flex items-center gap-4 min-h-16">
+      <a class="brand" href="#inicio">
+        Santiago Ruiz
+        <span class="badge">Fullstack · Backend</span>
+      </a>
+
+      <nav class="site-nav hidden md:block mx-auto" aria-label="Navegación principal">
+        <ul class="flex items-center gap-4 lg:gap-8" role="list">
+          <li><a class="nav-link" href="#inicio" data-nav-link aria-current="page">Inicio</a></li>
+          <li><a class="nav-link" href="#sobre-mi" data-nav-link>Sobre mí</a></li>
+          <li><a class="nav-link" href="#stack" data-nav-link>Stack</a></li>
+          <li><a class="nav-link" href="#proyectos" data-nav-link>Proyectos</a></li>
+          <li><a class="nav-link" href="#contacto" data-nav-link>Contacto</a></li>
+        </ul>
       </nav>
 
-      <div class="nav__actions">
-        <a class="btn btn--ghost nav__cta" href="#contacto">Hablemos</a>
-        <button
-          class="nav__toggle"
-          type="button"
-          data-menu-toggle
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-          aria-label="Abrir menú"
-        >
-          <span></span>
-          <span></span>
+      <div class="site-header__actions flex items-center gap-2 ms-auto md:ms-0">
+        <a class="btn btn--outline site-header__cv hidden md:inline-flex" href="https://docs.google.com/document/d/13W79GPKaEl94FsCbUBVxR3oUgOZBWl1GejITNmlsciw/edit?usp=sharing" data-todo="cv">
+          Ver CV
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
+          </svg>
+        </a>
+
+        <button class="nav-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+          <svg class="icon nav-toggle__open" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg class="icon nav-toggle__close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
         </button>
       </div>
     </div>
+
+    <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Navegación móvil">
+      <ul role="list">
+        <li><a href="#inicio" data-nav-link aria-current="page">Inicio</a></li>
+        <li><a href="#sobre-mi" data-nav-link>Sobre mí</a></li>
+        <li><a href="#stack" data-nav-link>Stack</a></li>
+        <li><a href="#proyectos" data-nav-link>Proyectos</a></li>
+        <li><a href="#contacto" data-nav-link>Contacto</a></li>
+        <li>
+          <a class="btn btn--outline btn--block" href="https://docs.google.com/document/d/13W79GPKaEl94FsCbUBVxR3oUgOZBWl1GejITNmlsciw/edit?usp=sharing" data-todo="cv">Ver CV</a>
+        </li>
+      </ul>
+    </nav>
   </header>
 
-  <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
-    <nav class="mobile-menu__nav" aria-label="Navegación móvil">
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#stack">Stack</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#experiencia">Experiencia</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-    <a class="btn btn--primary" href="#contacto">Hablemos</a>
-  </div>
+  <main id="contenido" class="pt-16" tabindex="-1">
+    <!-- 00 · Inicio -->
+    <section class="hero" id="inicio" aria-labelledby="inicio-title">
+      <div class="container hero__inner">
+        <p class="hero__status inline-flex items-center gap-2">
+          <span class="status-dot" aria-hidden="true"></span>
+          Candidato a pasantías &bull; 2027-1
+        </p>
 
-  <main id="main">
-    <section class="hero" id="inicio">
-      <div class="container hero__grid">
-        <div class="hero__copy" data-reveal>
-          <p class="status">
-            <span class="status__dot" aria-hidden="true"></span>
-            Disponible para proyectos
-          </p>
+        <h1 class="hero__title" id="inicio-title">
+          Construyo la arquitectura lógica que hace que los sistemas funcionen.
+        </h1>
 
-          <h1>Construyo <em>productos web</em> con intención.</h1>
+        <p class="hero__subtitle">Desarrollador fullstack en formación con enfoque backend</p>
 
-          <p class="hero__lead">
-            Soy Santiago Ruiz, builder junior desde Cali. Convierto necesidades concretas
-            en interfaces claras, rápidas y mantenibles con HTML, CSS y JavaScript.
-          </p>
+        <p class="hero__manifesto">
+          Priorizo la solidez de los fundamentos, la integridad de los datos y el manejo de concurrencia
+          antes de añadir capas innecesarias de complejidad. Diseño APIs limpias y servicios predecibles,
+          y las integro con interfaces en React, Next.js y TypeScript cuando el producto lo requiere.
+        </p>
 
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#proyectos">Ver proyectos</a>
-            <a class="btn btn--ghost" href="#contacto">Contacto</a>
-          </div>
+        <p class="hero__credentials flex items-center gap-2">
+          <svg class="icon icon--sm icon--accent" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="m4 17 6-6-6-6"/><path d="M12 19h8"/>
+          </svg>
+          Universidad del Valle &bull; Java &bull; Spring Boot &bull; Next.js &bull; AWS &bull; Scrum
+        </p>
 
-          <dl class="hero__stats">
-            <div>
-              <dt>Base</dt>
-              <dd>Cali, Colombia</dd>
-            </div>
-            <div>
-              <dt>Enfoque</dt>
-              <dd>Producto web</dd>
-            </div>
-            <div>
-              <dt>Disponibilidad</dt>
-              <dd>Abierta</dd>
-            </div>
-          </dl>
-        </div>
-
-        <aside class="hero__card" data-reveal aria-label="Fragmento de código de presentación">
-          <div class="code-head">
-            <span class="code-dot code-dot--red"></span>
-            <span class="code-dot code-dot--yellow"></span>
-            <span class="code-dot code-dot--green"></span>
-            <span class="code-head__name">perfil.js</span>
-          </div>
-          <pre><code><span class="tok-com">// perfil.js</span>
-<span class="tok-key">const</span> santiago = {
-  rol: <span class="tok-str">"builder developer jr"</span>,
-  base: <span class="tok-str">"Cali, Colombia"</span>,
-  stack: [<span class="tok-str">"HTML"</span>, <span class="tok-str">"CSS"</span>, <span class="tok-str">"JS"</span>],
-  enfoque: <span class="tok-str">"producto web"</span>,
-  disponible: <span class="tok-num">true</span>,
-};
-
-<span class="tok-key">function</span> <span class="tok-fn">construir</span>(idea) {
-  <span class="tok-key">return</span> { ...idea, enProduccion: <span class="tok-num">true</span> };
-}</code></pre>
-        </aside>
+        <ul class="hero__actions flex flex-wrap items-center gap-3" role="list">
+          <li><a class="btn btn--primary" href="#proyectos">Ver proyectos</a></li>
+          <li><a class="btn btn--outline" href="#contacto">Contacto</a></li>
+        </ul>
       </div>
     </section>
 
-    <section class="section" id="sobre-mi">
-      <div class="container about__grid">
-        <div class="section__head" data-reveal>
-          <p class="eyebrow">01 — Sobre mí</p>
-          <h2>Curiosidad primero, código después.</h2>
-        </div>
-
-        <div class="about__body" data-reveal>
-          <p>
-            Empecé en la web porque quería entender cómo funcionaban las cosas que usaba
-            todos los días. Hoy disfruto el proceso de tomar una idea difusa y convertirla
-            en algo que se pueda usar, probar y mejorar.
-          </p>
-          <p>
-            Me interesa el producto completo: la estructura, el detalle visual, la
-            accesibilidad y el rendimiento. Trabajo con <strong>HTML semántico</strong>,
-            <strong>CSS a mano</strong> y <strong>JavaScript sin dependencias</strong>
-            cuando el proyecto lo permite.
-          </p>
-          <p>
-            Estoy en búsqueda de mi primera oportunidad profesional, con espacio para
-            aprender rápido y aportar desde el primer día.
-          </p>
-
-          <dl class="about__facts">
-            <div>
-              <dt>Ubicación</dt>
-              <dd>Cali, Colombia</dd>
-            </div>
-            <div>
-              <dt>Rol</dt>
-              <dd>Builder Developer Jr.</dd>
-            </div>
-            <div>
-              <dt>Stack</dt>
-              <dd>HTML · CSS · JS</dd>
-            </div>
-            <div>
-              <dt>Idiomas</dt>
-              <dd>Español · Inglés</dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--alt" id="stack">
+    <!-- 01 · Perfil -->
+    <section class="section section--alt" id="sobre-mi" aria-labelledby="sobre-mi-title">
       <div class="container">
-        <div class="section__head" data-reveal>
-          <p class="eyebrow">02 — Stack</p>
-          <h2>Herramientas con las que trabajo.</h2>
-          <p>Lo que uso a diario, lo que me acompaña en el proceso y lo que estoy explorando.</p>
+        <p class="section-tag" data-reveal>
+          <span>01 / Perfil</span>
+          <span class="section-tag__line" aria-hidden="true"></span>
+        </p>
+
+        <div class="about__copy" data-reveal>
+          <h2 id="sobre-mi-title">Comprender el núcleo antes de ensamblar frameworks.</h2>
+
+          <p>
+            Soy estudiante de la <strong>Universidad del Valle</strong> y desarrollador fullstack en
+            formación, con especial interés en la capa backend. Allí he cimentado una visión metódica del
+            desarrollo de software: las herramientas cambian a un ritmo acelerado, pero los principios que
+            rigen los sistemas operativos, las redes de computadoras y la teoría de bases de datos
+            permanecen.
+          </p>
+
+          <p>
+            Mi interés principal radica en la capa que no se ve: la persistencia atómica, la correcta
+            serialización de datos, la gestión del estado y la resiliencia en entornos concurrentes. En
+            lugar de copiar soluciones automáticas, me interesa examinar los planes de ejecución de una
+            consulta SQL, entender el ciclo de vida de una petición HTTP y garantizar que cada endpoint
+            responda con códigos de estado coherentes y validaciones estrictas. Cuando el proyecto lo
+            exige, cierro el ciclo con interfaces en React o Next.js que consumen esos contratos sin
+            duplicar lógica de negocio.
+          </p>
+
+          <p>
+            Trabajo con metodologías ágiles como Scrum para colaborar de forma predecible y organizada,
+            manteniendo el código testeado, documentado y listo para ambientes de integración continua.
+          </p>
         </div>
 
-        <div class="stack__grid">
-          <article class="stack-card" data-reveal>
-            <span class="stack-card__icon" aria-hidden="true">&lt;/&gt;</span>
-            <h3>Frontend</h3>
-            <p>Interfaces responsivas, semánticas y accesibles, construidas desde cero.</p>
-            <div class="stack-card__tags">
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Responsive</span>
-              <span class="tag">Accesibilidad</span>
-            </div>
-          </article>
-
-          <article class="stack-card" data-reveal>
-            <span class="stack-card__icon" aria-hidden="true">git</span>
-            <h3>Herramientas</h3>
-            <p>Control de versiones, edición de código y publicación de sitios estáticos.</p>
-            <div class="stack-card__tags">
-              <span class="tag">Git</span>
-              <span class="tag">GitHub</span>
-              <span class="tag">VS Code</span>
-              <span class="tag">Figma</span>
-              <span class="tag">GitHub Pages</span>
-            </div>
-          </article>
-
-          <article class="stack-card" data-reveal>
-            <span class="stack-card__icon" aria-hidden="true">+</span>
-            <h3>Explorando</h3>
-            <p>Las siguientes piezas del rompecabezas que quiero dominar este año.</p>
-            <div class="stack-card__tags">
-              <span class="tag">React</span>
-              <span class="tag">TypeScript</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">APIs</span>
-              <span class="tag">Testing</span>
-            </div>
-          </article>
-        </div>
+        <dl class="spec-list grid grid-cols-2 gap-4 sm:grid-cols-3 about__specs" data-reveal>
+          <div class="spec">
+            <dt>Enfoque</dt>
+            <dd>APIs &amp; Modelado</dd>
+          </div>
+          <div class="spec">
+            <dt>Academia</dt>
+            <dd>Univalle</dd>
+          </div>
+          <div class="spec">
+            <dt>Disponibilidad</dt>
+            <dd class="is-accent">Inmediata</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
-    <section class="section" id="proyectos">
+    <!-- 02 · Competencias -->
+    <section class="section" id="stack" aria-labelledby="stack-title">
       <div class="container">
-        <div class="section__head" data-reveal>
-          <p class="eyebrow">03 — Proyectos</p>
-          <h2>Cosas que he construido.</h2>
-          <p>Una selección de proyectos donde puse en práctica lo que aprendo.</p>
-        </div>
+        <p class="section-tag" data-reveal>
+          <span>02 / Competencias</span>
+          <span class="section-tag__line" aria-hidden="true"></span>
+        </p>
 
-        <div class="projects__grid">
-          <article class="project" data-reveal>
-            <div class="project__thumb" aria-hidden="true">
-              <span class="project__num">01</span>
-            </div>
-            <div class="project__body">
-              <div class="project__top">
-                <h3>Portafolio personal</h3>
-                <span class="badge">Destacado</span>
-              </div>
-              <p>
-                Sitio estático de una página con tema oscuro, navegación por anclas,
-                menú móvil y animaciones de aparición. Sin frameworks ni build.
+        <header class="section__head" data-reveal>
+          <div class="section__head-row flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 class="section__title" id="stack-title">Stack tecnológico</h2>
+              <p class="section__intro">
+                Conjunto de tecnologías, lenguajes y utilidades con las que desarrollo soluciones
+                fullstack mantenibles y estructuradas, con énfasis en la capa backend.
               </p>
-              <div class="project__tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JavaScript</span>
-              </div>
             </div>
-            <a
-              class="project__link"
-              href="https://github.com/ruizexel/portafolio_santiago_ruiz"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Ver el repositorio del portafolio en GitHub"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M7 17 17 7" />
-                <path d="M7 7h10v10" />
+            <p class="section__meta">Estructura modular // 4 pilares</p>
+          </div>
+        </header>
+
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
+          <article class="stack-card flex flex-col gap-5" data-reveal>
+            <header class="stack-card__head flex items-center justify-between gap-4">
+              <h3 class="stack-card__title flex items-center gap-2.5">
+                <svg class="icon icon--md icon--accent" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <rect width="16" height="16" x="4" y="4" rx="2"/>
+                  <rect width="6" height="6" x="9" y="9" rx="1"/>
+                  <path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/>
+                </svg>
+                Backend Core
+              </h3>
+              <span class="badge badge--accent">Especialidad</span>
+            </header>
+
+            <p class="stack-card__body">
+              Construcción de lógica de negocio desacoplada, control transaccional e interfaces estándar
+              bajo arquitectura en capas.
+            </p>
+
+            <ul class="tag-list stack-card__tags" role="list">
+              <li class="tag">Java</li>
+              <li class="tag tag--accent">Spring Boot</li>
+              <li class="tag">Express</li>
+              <li class="tag tag--accent">NestJS</li>
+              <li class="tag">Next.js</li>
+              <li class="tag">REST APIs</li>
+              <li class="tag">JPA / Hibernate</li>
+              <li class="tag">Node.js</li>
+            </ul>
+          </article>
+
+          <article class="stack-card flex flex-col gap-5" data-reveal>
+            <header class="stack-card__head flex items-center justify-between gap-4">
+              <h3 class="stack-card__title flex items-center gap-2.5">
+                <svg class="icon icon--md icon--accent" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                  <path d="M3 5v14a9 3 0 0 0 18 0V5"/>
+                  <path d="M3 12a9 3 0 0 0 18 0"/>
+                </svg>
+                Bases de datos &amp; Persistencia / UX
+              </h3>
+              <span class="badge">SQL, NoSQL &amp; UX</span>
+            </header>
+
+            <p class="stack-card__body">
+              Modelado de esquemas relacionales y NoSQL, persistencia distribuida en la nube y
+              conceptualización de flujos de interacción y prototipado.
+            </p>
+
+            <ul class="tag-list stack-card__tags" role="list">
+              <li class="tag">MySQL</li>
+              <li class="tag">SQLite</li>
+              <li class="tag tag--accent">PostgreSQL</li>
+              <li class="tag">DynamoDB</li>
+              <li class="tag">MongoDB</li>
+              <li class="tag">Firestore</li>
+              <li class="tag">MariaDB</li>
+              <li class="tag tag--accent">AWS RDS</li>
+              <li class="tag">Figma</li>
+              <li class="tag">Stitch (UX)</li>
+            </ul>
+          </article>
+
+          <article class="stack-card flex flex-col gap-5" data-reveal>
+            <header class="stack-card__head flex items-center justify-between gap-4">
+              <h3 class="stack-card__title flex items-center gap-2.5">
+                <svg class="icon icon--md icon--accent" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <rect width="20" height="14" x="2" y="3" rx="2"/>
+                  <path d="M8 21h8M12 17v4"/>
+                </svg>
+                Frontend &amp; Consumo
+              </h3>
+              <span class="badge">Integración</span>
+            </header>
+
+            <p class="stack-card__body">
+              Comprensión del ciclo de vida en el cliente para implementar flujos de autenticación,
+              manejo de estados asíncronos y consumo fiable de endpoints.
+            </p>
+
+            <ul class="tag-list stack-card__tags" role="list">
+              <li class="tag tag--accent">Next.js</li>
+              <li class="tag">React</li>
+              <li class="tag">Angular</li>
+              <li class="tag tag--accent">TypeScript</li>
+              <li class="tag">HTML5</li>
+              <li class="tag">CSS3</li>
+            </ul>
+          </article>
+
+          <article class="stack-card flex flex-col gap-5" data-reveal>
+            <header class="stack-card__head flex items-center justify-between gap-4">
+              <h3 class="stack-card__title flex items-center gap-2.5">
+                <svg class="icon icon--md icon--accent" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <rect width="20" height="8" x="2" y="2" rx="2"/>
+                  <rect width="20" height="8" x="2" y="14" rx="2"/>
+                  <path d="M6 6h.01M6 18h.01"/>
+                </svg>
+                Herramientas &amp; Despliegue
+              </h3>
+              <span class="badge">DevOps &amp; Ops</span>
+            </header>
+
+            <p class="stack-card__body">
+              Virtualización por contenedores, pruebas de contratos de comunicación, ambientes en la nube
+              y gestión ágil del trabajo en equipo.
+            </p>
+
+            <ul class="tag-list stack-card__tags" role="list">
+              <li class="tag tag--accent">AWS (EC2, S3)</li>
+              <li class="tag tag--accent">Docker</li>
+              <li class="tag">Render</li>
+              <li class="tag">Vercel</li>
+              <li class="tag">Git</li>
+              <li class="tag">GitHub</li>
+              <li class="tag">Bash (Linux)</li>
+              <li class="tag">Postman</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · Implementaciones -->
+    <section class="section section--alt" id="proyectos" aria-labelledby="proyectos-title">
+      <div class="container">
+        <p class="section-tag" data-reveal>
+          <span>03 / Implementaciones</span>
+          <span class="section-tag__line" aria-hidden="true"></span>
+        </p>
+
+        <header class="section__head" data-reveal>
+          <div class="section__head-row flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 class="section__title" id="proyectos-title">Proyectos</h2>
+              <p class="section__intro">
+                Soluciones fullstack desarrolladas con énfasis en atomicidad transaccional, tolerancia a
+                fallos y optimización de latencias.
+              </p>
+            </div>
+            <p class="section__meta">Arch repository // revisiones auditables</p>
+          </div>
+        </header>
+
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article class="project-card flex flex-col overflow-hidden" data-reveal>
+            <figure class="project-card__media project-card__media--image">
+              <img
+                src="/img/planificador_eventos/login.png"
+                alt="Panel del día del Planificador de Eventos, con las gestiones pendientes y vencidas."
+                loading="lazy"
+                decoding="async"
+              >
+              <span class="badge badge--signal project-card__version">MVP</span>
+              <figcaption class="visually-hidden">
+                Panel del día del Planificador de Eventos.
+              </figcaption>
+            </figure>
+
+            <div class="project-card__body flex flex-1 flex-col gap-4">
+              <h3 class="project-card__title">Planificador de Eventos</h3>
+              <p class="project-card__desc">
+                MVP fullstack para organizadores independientes: crear eventos, desglosar el plan
+                logístico en subtareas y controlar cuántas horas caben en cada día. API Spring Boot con
+                JWT, límite diario de 1–16 h y PostgreSQL en Supabase.
+              </p>
+              <ul class="tag-list" role="list">
+                <li class="tag tag--accent">React</li>
+                <li class="tag">Spring Boot</li>
+                <li class="tag">PostgreSQL</li>
+                <li class="tag tag--accent">JWT</li>
+                <li class="tag">Docker</li>
+              </ul>
+            </div>
+
+            <footer class="project-card__footer flex items-center justify-between gap-4">
+              <a class="project-card__link inline-flex items-center gap-1.5" href="https://planificador-eventos-frontend-ten.vercel.app">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Demo
+              </a>
+              <a class="project-card__link inline-flex items-center gap-1.5" href="#" data-todo="repo-planificador-frontend">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                </svg>
+                GitHub
+              </a>
+            </footer>
+            <a class="project-card__more" href="/proyectos/planificador-eventos" aria-label="Ver información completa de Planificador de Eventos">
+              <span>Ver información completa</span>
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
               </svg>
             </a>
           </article>
 
-          <article class="project" data-reveal>
-            <div class="project__thumb project__thumb--alt" aria-hidden="true">
-              <span class="project__num">02</span>
-            </div>
-            <div class="project__body">
-              <div class="project__top">
-                <h3>Gestor de tareas</h3>
-              </div>
-              <p>
-                Aplicación para organizar pendientes con estados, filtros y persistencia
-                local. Enfocada en una interacción simple y sin fricción.
+          <article class="project-card flex flex-col overflow-hidden" data-reveal>
+            <figure class="project-card__media flex flex-col items-center justify-center gap-1.5">
+              <svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M8 21v-6h8v6"/>
+              </svg>
+              <span class="badge badge--signal project-card__version">v1.2.0</span>
+              <figcaption>
+                <span class="project-card__media-title">Captura del proyecto</span>
+                <span class="project-card__media-hint">ratio 16:9 &bull; diagrama de arquitectura</span>
+              </figcaption>
+            </figure>
+
+            <div class="project-card__body flex flex-1 flex-col gap-4">
+              <h3 class="project-card__title">Victus CAF</h3>
+              <p class="project-card__desc">
+                Plataforma con arquitectura desacoplada: backend robusto en Spring Boot, autenticación
+                delegada con Firebase Authentication, persistencia gestionada en Supabase PostgreSQL e
+                interfaz reactiva en React con TypeScript.
               </p>
-              <div class="project__tags">
-                <span class="tag">JavaScript</span>
-                <span class="tag">LocalStorage</span>
-                <span class="tag">CSS</span>
-              </div>
+              <ul class="tag-list" role="list">
+                <li class="tag tag--accent">Spring Boot</li>
+                <li class="tag">Supabase PostgreSQL</li>
+                <li class="tag">React</li>
+                <li class="tag tag--accent">TypeScript</li>
+                <li class="tag">Firebase Auth</li>
+              </ul>
             </div>
-            <a
-              class="project__link"
-              href="https://github.com/ruizexel"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Ver el proyecto gestor de tareas en GitHub"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M7 17 17 7" />
-                <path d="M7 7h10v10" />
+
+            <footer class="project-card__footer flex items-center justify-between gap-4">
+              <a class="project-card__link inline-flex items-center gap-1.5" href="#" data-todo="demo-victus">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Demo
+              </a>
+              <a class="project-card__link inline-flex items-center gap-1.5" href="#" data-todo="repo-victus">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                </svg>
+                GitHub
+              </a>
+            </footer>
+            <a class="project-card__more" href="/proyectos/victus-caf" aria-label="Ver información completa de Victus CAF">
+              <span>Ver información completa</span>
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
               </svg>
             </a>
           </article>
 
-          <article class="project" data-reveal>
-            <div class="project__thumb project__thumb--alt-2" aria-hidden="true">
-              <span class="project__num">03</span>
-            </div>
-            <div class="project__body">
-              <div class="project__top">
-                <h3>Landing de producto</h3>
-              </div>
-              <p>
-                Página de presentación con jerarquía clara, secciones modulares y
-                llamados a la acción medibles. Diseñada para cargar rápido.
+          <article class="project-card flex flex-col overflow-hidden" data-reveal>
+            <figure class="project-card__media flex flex-col items-center justify-center gap-1.5">
+              <svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="5" r="2"/>
+                <circle cx="19" cy="19" r="2"/><circle cx="5" cy="19" r="2"/>
+                <path d="M12 12 19 5M12 12 5 5M12 12l7 7M12 12l-7 7"/>
+              </svg>
+              <span class="badge badge--signal project-card__version">v0.9.4</span>
+              <figcaption>
+                <span class="project-card__media-title">Captura del proyecto</span>
+                <span class="project-card__media-hint">ratio 16:9 &bull; topología de colas</span>
+              </figcaption>
+            </figure>
+
+            <div class="project-card__body flex flex-1 flex-col gap-4">
+              <h3 class="project-card__title">Microservicio de Notificaciones y Eventos</h3>
+              <p class="project-card__desc">
+                Módulo reactivo desacoplado para despacho asíncrono de alertas transaccionales. Empleo de
+                RabbitMQ para amortiguar picos de carga con reintentos exponenciales, caching de plantillas
+                en Redis y persistencia de auditoría de payloads en AWS S3.
               </p>
-              <div class="project__tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">Diseño</span>
-              </div>
+              <ul class="tag-list" role="list">
+                <li class="tag">Java</li>
+                <li class="tag">RabbitMQ</li>
+                <li class="tag tag--accent">Redis</li>
+                <li class="tag">AWS S3</li>
+                <li class="tag">Spring Cloud</li>
+              </ul>
             </div>
-            <a
-              class="project__link"
-              href="https://github.com/ruizexel"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Ver el proyecto landing de producto en GitHub"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M7 17 17 7" />
-                <path d="M7 7h10v10" />
+
+            <footer class="project-card__footer flex items-center justify-between gap-4">
+              <a class="project-card__link inline-flex items-center gap-1.5" href="#" data-todo="demo-notificaciones">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Demo
+              </a>
+              <a class="project-card__link inline-flex items-center gap-1.5" href="#" data-todo="repo-notificaciones">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                </svg>
+                GitHub
+              </a>
+            </footer>
+            <a class="project-card__more" href="/proyectos/notificaciones-eventos" aria-label="Ver información completa de Microservicio de Notificaciones y Eventos">
+              <span>Ver información completa</span>
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </article>
+
+          <article class="project-card flex flex-col overflow-hidden" data-reveal>
+            <figure class="project-card__media flex flex-col items-center justify-center gap-1.5">
+              <svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M8 2v4M16 2v4"/>
+                <rect width="18" height="18" x="3" y="4" rx="2"/>
+                <path d="M3 10h18"/>
+              </svg>
+              <span class="badge badge--signal project-card__version">v2.0.1</span>
+              <figcaption>
+                <span class="project-card__media-title">Captura del proyecto</span>
+                <span class="project-card__media-hint">ratio 16:9 &bull; matriz de colisión</span>
+              </figcaption>
+            </figure>
+
+            <div class="project-card__body flex flex-1 flex-col gap-4">
+              <h3 class="project-card__title">Sistema de Reservas y Disponibilidad Académica</h3>
+              <p class="project-card__desc">
+                Motor de reserva de aulas y laboratorios universitarios. Algoritmo de validación temporal
+                para evitar solapamientos de bloques horarios y consultas nativas SQL indexadas que
+                redujeron el tiempo de respuesta un 60% bajo carga concurrente simulada en Postman.
+              </p>
+              <ul class="tag-list" role="list">
+                <li class="tag tag--accent">Spring Boot</li>
+                <li class="tag">MySQL</li>
+                <li class="tag">REST API</li>
+                <li class="tag">Postman</li>
+                <li class="tag">Hibernate</li>
+              </ul>
+            </div>
+
+            <footer class="project-card__footer flex items-center justify-between gap-4">
+              <a class="project-card__link inline-flex items-center gap-1.5" href="#" data-todo="demo-reservas">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Demo
+              </a>
+              <a class="project-card__link inline-flex items-center gap-1.5" href="#" data-todo="repo-reservas">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                </svg>
+                GitHub
+              </a>
+            </footer>
+            <a class="project-card__more" href="/proyectos/reservas-academicas" aria-label="Ver información completa de Sistema de Reservas y Disponibilidad Académica">
+              <span>Ver información completa</span>
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </article>
+
+          <article class="project-card flex flex-col overflow-hidden" data-reveal>
+            <figure class="project-card__media flex flex-col items-center justify-center gap-1.5">
+              <svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="m7.5 4.27 9 5.15"/>
+                <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+                <path d="m3.3 7 8.7 5 8.7-5"/>
+                <path d="M12 22V12"/>
+              </svg>
+              <span class="badge badge--signal project-card__version">v1.0.3</span>
+              <figcaption>
+                <span class="project-card__media-title">Captura del proyecto</span>
+                <span class="project-card__media-hint">ratio 16:9 &bull; flujo de inventario</span>
+              </figcaption>
+            </figure>
+
+            <div class="project-card__body flex flex-1 flex-col gap-4">
+              <h3 class="project-card__title">Inventario y Trazabilidad</h3>
+              <p class="project-card__desc">
+                Plataforma fullstack para control de inventario con movimientos auditables. API en NestJS
+                sobre PostgreSQL, caché de consultas en Redis y panel de operación en Next.js con
+                TypeScript; despliegue reproducible con Docker.
+              </p>
+              <ul class="tag-list" role="list">
+                <li class="tag tag--accent">NestJS</li>
+                <li class="tag">PostgreSQL</li>
+                <li class="tag tag--accent">Redis</li>
+                <li class="tag">Next.js</li>
+                <li class="tag">TypeScript</li>
+              </ul>
+            </div>
+
+            <footer class="project-card__footer flex items-center justify-between gap-4">
+              <a class="project-card__link inline-flex items-center gap-1.5" href="#" data-todo="demo-inventario">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Demo
+              </a>
+              <a class="project-card__link inline-flex items-center gap-1.5" href="#" data-todo="repo-inventario">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                </svg>
+                GitHub
+              </a>
+            </footer>
+            <a class="project-card__more" href="/proyectos/inventario-trazabilidad" aria-label="Ver información completa de Inventario y Trazabilidad">
+              <span>Ver información completa</span>
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </article>
+
+          <article class="project-card flex flex-col overflow-hidden" data-reveal>
+            <figure class="project-card__media flex flex-col items-center justify-center gap-1.5">
+              <svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M3 3v18h18"/>
+                <path d="M18 17V9"/>
+                <path d="M13 17V5"/>
+                <path d="M8 17v-3"/>
+              </svg>
+              <span class="badge badge--signal project-card__version">v1.4.2</span>
+              <figcaption>
+                <span class="project-card__media-title">Captura del proyecto</span>
+                <span class="project-card__media-hint">ratio 16:9 &bull; pipeline de reportes</span>
+              </figcaption>
+            </figure>
+
+            <div class="project-card__body flex flex-1 flex-col gap-4">
+              <h3 class="project-card__title">Motor de Reportes y Analítica</h3>
+              <p class="project-card__desc">
+                Servicio de agregación de ventas y generación de reportes programados. Cálculo en Spring
+                Boot sobre PostgreSQL, exportaciones asíncronas a AWS S3 y panel de consulta en React con
+                TypeScript.
+              </p>
+              <ul class="tag-list" role="list">
+                <li class="tag tag--accent">Spring Boot</li>
+                <li class="tag">PostgreSQL</li>
+                <li class="tag">AWS S3</li>
+                <li class="tag tag--accent">React</li>
+                <li class="tag">TypeScript</li>
+              </ul>
+            </div>
+
+            <footer class="project-card__footer flex items-center justify-between gap-4">
+              <a class="project-card__link inline-flex items-center gap-1.5" href="#" data-todo="demo-reportes">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Demo
+              </a>
+              <a class="project-card__link inline-flex items-center gap-1.5" href="#" data-todo="repo-reportes">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                </svg>
+                GitHub
+              </a>
+            </footer>
+            <a class="project-card__more" href="/proyectos/reportes-analitica" aria-label="Ver información completa de Motor de Reportes y Analítica">
+              <span>Ver información completa</span>
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
               </svg>
             </a>
           </article>
         </div>
-
-        <div class="projects__more" data-reveal>
-          <a class="btn btn--ghost" href="https://github.com/ruizexel" target="_blank" rel="noopener noreferrer">
-            Ver más en GitHub
-          </a>
-        </div>
       </div>
     </section>
 
-    <section class="section section--alt" id="experiencia">
+    <!-- 04 · Comunicación -->
+    <section class="section" id="contacto" aria-labelledby="contacto-title">
       <div class="container">
-        <div class="section__head" data-reveal>
-          <p class="eyebrow">04 — Experiencia</p>
-          <h2>Trayectoria hasta ahora.</h2>
-        </div>
+        <p class="section-tag" data-reveal>
+          <span>04 / Comunicación</span>
+          <span class="section-tag__line" aria-hidden="true"></span>
+        </p>
 
-        <div class="timeline">
-          <article class="timeline__item" data-reveal>
-            <p class="timeline__date">2026</p>
-            <div class="timeline__body">
-              <h3>Builder independiente</h3>
-              <p>
-                Diseño y desarrollo sitios y herramientas web para necesidades concretas,
-                cuidando estructura, accesibilidad y rendimiento.
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+          <div class="flex flex-col justify-between gap-8 lg:col-span-5" data-reveal>
+            <div>
+              <h2 class="contact__title" id="contacto-title">Hablemos de ingeniería y proyectos</h2>
+              <p class="contact__intro">
+                Actualmente abierto a procesos de selección para pasantías técnicas, roles fullstack
+                junior con enfoque backend o participación en proyectos que demanden disciplina
+                arquitectónica en Java, Spring Boot y Next.js.
               </p>
-            </div>
-          </article>
 
-          <article class="timeline__item" data-reveal>
-            <p class="timeline__date">2025</p>
-            <div class="timeline__body">
-              <h3>Proyectos personales</h3>
-              <p>
-                Iteré sobre interfaces reales, aprendí a leer documentación, a depurar en
-                el navegador y a publicar con GitHub Pages.
+              <address>
+                <ul class="contact-list grid gap-4" role="list">
+                  <li class="contact-item flex items-start gap-3">
+                    <svg class="icon contact-item__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <rect width="20" height="16" x="2" y="4" rx="2"/>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                    <div>
+                      <span class="contact-item__label">Correo institucional</span>
+                      <a class="contact-item__value" href="#" data-todo="email">santiago.ruiz@correounivalle.edu.co</a>
+                    </div>
+                  </li>
+                  <li class="contact-item flex items-start gap-3">
+                    <svg class="icon contact-item__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                      <path d="M9 18c-4.51 2-5-2-7-2"/>
+                    </svg>
+                    <div>
+                      <span class="contact-item__label">Repositorios públicos</span>
+                      <a class="contact-item__value" href="#" data-todo="github">github.com/santiagoruiz-dev</a>
+                    </div>
+                  </li>
+                  <li class="contact-item flex items-start gap-3">
+                    <svg class="icon contact-item__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                      <rect width="4" height="12" x="2" y="9"/>
+                      <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                    <div>
+                      <span class="contact-item__label">Red profesional</span>
+                      <a class="contact-item__value" href="#" data-todo="linkedin">linkedin.com/in/santiago-ruiz-backend</a>
+                    </div>
+                  </li>
+                </ul>
+              </address>
+            </div>
+
+            <div class="contact__note">
+              <p class="contact__note-status">
+                <span class="status-dot" aria-hidden="true"></span>
+                Zona horaria: UTC-5 (Colombia)
               </p>
+              <p>Respuesta habitual en menos de 24 horas hábiles.</p>
             </div>
-          </article>
-
-          <article class="timeline__item" data-reveal>
-            <p class="timeline__date">2024</p>
-            <div class="timeline__body">
-              <h3>Fundamentos</h3>
-              <p>
-                Empecé con HTML, CSS y JavaScript desde cero. La base sigue siendo la
-                misma: entender el problema antes de escribir la primera línea.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact" id="contacto">
-      <div class="container">
-        <div class="contact__card" data-reveal>
-          <p class="eyebrow">05 — Contacto</p>
-          <h2>¿Construimos algo juntos?</h2>
-          <p>
-            Si tienes una idea, una necesidad concreta o un proyecto en mente, escríbeme.
-            Respondo en menos de 48 horas.
-          </p>
-          <div class="contact__actions">
-            <button class="btn btn--primary" type="button" data-copy-email="hola@santiagoruiz.dev">
-              Copiar email
-            </button>
-            <a class="btn btn--ghost" href="mailto:hola@santiagoruiz.dev">Escribir correo</a>
           </div>
-          <div class="contact__socials">
-            <a href="https://github.com/ruizexel" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="mailto:hola@santiagoruiz.dev">Correo</a>
-            <a href="#inicio">Volver arriba ↑</a>
-          </div>
+
+          <form class="contact__form lg:col-span-7" data-contact-form action="#" method="post" data-reveal>
+            <div class="grid gap-5 sm:grid-cols-2">
+              <div class="field">
+                <label class="field__label" for="nombre">
+                  Nombre completo <span class="field__required" aria-hidden="true">*</span>
+                </label>
+                <input class="field__control" id="nombre" name="nombre" type="text" placeholder="Ej. Carlos Mendoza" autocomplete="name" required>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="correo">
+                  Correo electrónico <span class="field__required" aria-hidden="true">*</span>
+                </label>
+                <input class="field__control" id="correo" name="correo" type="email" placeholder="carlos@empresa.com" autocomplete="email" required>
+              </div>
+
+              <div class="field sm:col-span-2">
+                <label class="field__label" for="mensaje">
+                  Mensaje o descripción de la vacante <span class="field__required" aria-hidden="true">*</span>
+                </label>
+                <textarea class="field__control" id="mensaje" name="mensaje" rows="5" placeholder="Detalles sobre el proyecto, stack requerido o requisitos de la pasantía..." required></textarea>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
+              <button class="btn btn--primary" type="submit">
+                Enviar mensaje
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/>
+                  <path d="m21.854 2.147-10.94 10.939"/>
+                </svg>
+              </button>
+              <p class="form-note">Datos protegidos bajo política académica</p>
+            </div>
+
+            <p class="form-status" data-form-status role="status" aria-live="polite">
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M21.801 10A10 10 0 1 1 17 3.335"/>
+                <path d="m9 11 3 3L22 4"/>
+              </svg>
+              <span data-form-message></span>
+            </p>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <a class="nav__logo" href="#inicio" aria-label="Santiago Ruiz, volver al inicio">SR<span>.</span></a>
-      <p>© <span data-year>2026</span> Santiago Ruiz. Hecho a mano con HTML, CSS y JS.</p>
-      <div class="footer__links">
-        <a href="#proyectos">Proyectos</a>
-        <a href="#contacto">Contacto</a>
-        <a href="https://github.com/ruizexel" target="_blank" rel="noopener noreferrer">GitHub</a>
+  <footer class="site-footer">
+    <div class="container site-footer__inner flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+      <div>
+        <p class="site-footer__status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Disponible para pasantías / proyectos
+        </p>
+        <p class="site-footer__copy">&copy; <span data-year>2026</span> Santiago Ruiz. Desarrollo fullstack con enfoque backend.</p>
       </div>
+
+      <nav aria-label="Enlaces sociales">
+        <ul class="site-footer__links flex flex-wrap gap-5" role="list">
+          <li><a href="#" data-todo="github">GitHub</a></li>
+          <li><a href="#" data-todo="linkedin">LinkedIn</a></li>
+          <li><a href="#" data-todo="email">Email</a></li>
+          <li><a href="#" data-todo="gpg">GPG</a></li>
+        </ul>
+      </nav>
     </div>
   </footer>
 
-  <div class="toast" data-toast role="status" aria-live="polite"></div>
+  <script src="/index.js?v=4" defer></script>
 </body>
 </html>

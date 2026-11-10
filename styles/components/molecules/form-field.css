@@ -1,0 +1,12 @@
+/* ============================================================================
+   MOLÉCULA · Estructura del formulario
+   La grilla y las acciones usan utilidades Tailwind en el HTML.
+   ============================================================================ */
+
+@layer components {
+  .form-note {
+    color: var(--color-ink-dim);
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+  }
+}

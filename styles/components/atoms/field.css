@@ -1,0 +1,52 @@
+/* ============================================================================
+   ÁTOMO · Campo de formulario
+   ============================================================================ */
+
+@layer components {
+  .field {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .field__label {
+    color: var(--color-ink);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .field__required {
+    color: var(--color-accent);
+  }
+
+  .field__control {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    transition: border-color 0.18s ease, background-color 0.18s ease;
+  }
+
+  .field__control::placeholder {
+    color: var(--color-ink-dim);
+  }
+
+  .field__control:hover {
+    border-color: var(--color-line-strong);
+  }
+
+  .field__control:focus {
+    border-color: var(--color-accent);
+    outline: none;
+  }
+
+  textarea.field__control {
+    min-height: 8.5rem;
+    resize: vertical;
+  }
+}

@@ -1,0 +1,71 @@
+/* ============================================================================
+   ORGANISMO · Contacto
+   La grilla de dos columnas usa utilidades Tailwind en el HTML.
+   ============================================================================ */
+
+@layer components {
+  .contact__title {
+    margin-block-end: 1rem;
+  }
+
+  .contact__intro {
+    margin-block-end: 2rem;
+    color: var(--color-ink-muted);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+  }
+
+  .contact__note {
+    padding: 1rem;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface-low);
+  }
+
+  .contact__note-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-ink);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+  }
+
+  .contact__note p + p {
+    margin-block-start: 0.35rem;
+    color: var(--color-ink-dim);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+  }
+
+  .contact__form {
+    display: grid;
+    gap: 1.25rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface-low);
+  }
+
+  .form-status {
+    display: none;
+    padding: 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 38%, transparent);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface);
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+  }
+
+  .form-status.is-visible {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .form-status--error {
+    border-color: color-mix(in srgb, var(--color-signal) 45%, transparent);
+    color: var(--color-signal);
+  }
+}

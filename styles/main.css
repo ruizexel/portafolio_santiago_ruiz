@@ -1,0 +1,42 @@
+/* ============================================================================
+   Punto de entrada del CSS.
+   El HTML solo enlaza ./styles/build.css (compilado).
+
+   Orden: tokens → base → layouts → átomos → moléculas → organismos → utilidades
+   ============================================================================ */
+
+@import "tailwindcss";
+
+@import "./tokens/theme.css";
+
+@import "./base/reset.css";
+@import "./base/typography.css";
+
+@import "./layouts/container.css";
+@import "./layouts/header.css";
+@import "./layouts/section.css";
+@import "./layouts/footer.css";
+
+@import "./components/atoms/button.css";
+@import "./components/atoms/badge.css";
+@import "./components/atoms/tag.css";
+@import "./components/atoms/status-dot.css";
+@import "./components/atoms/icon.css";
+@import "./components/atoms/field.css";
+
+@import "./components/molecules/brand.css";
+@import "./components/molecules/nav-link.css";
+@import "./components/molecules/stack-card.css";
+@import "./components/molecules/project-card.css";
+@import "./components/molecules/contact-item.css";
+@import "./components/molecules/spec-list.css";
+@import "./components/molecules/form-field.css";
+
+@import "./components/organisms/hero.css";
+@import "./components/organisms/about.css";
+@import "./components/organisms/contact.css";
+@import "./components/organisms/project-detail.css";
+@import "./components/organisms/mobile-menu.css";
+
+@import "./utilities/animations.css";
+@import "./utilities/helpers.css";

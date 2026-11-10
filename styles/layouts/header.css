@@ -1,0 +1,22 @@
+/* ============================================================================
+   LAYOUT · Cabecera fija
+   Sin blur ni transparencias: fondo sólido y borde de 1px al hacer scroll.
+   La fila y el responsive se resuelven con utilidades Tailwind en el HTML.
+   ============================================================================ */
+
+@layer components {
+  .site-header {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: 50;
+    background-color: var(--color-canvas);
+    border-block-end: 1px solid transparent;
+    transition: background-color 0.18s ease, border-color 0.18s ease;
+  }
+
+  .site-header.is-scrolled {
+    background-color: var(--color-surface-lowest);
+    border-block-end-color: var(--color-line);
+  }
+}

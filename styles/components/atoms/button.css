@@ -1,0 +1,58 @@
+/* ============================================================================
+   ÁTOMO · Botón
+   ============================================================================ */
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.35rem;
+    border: 1px solid var(--color-line-strong);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-button);
+    color: var(--color-ink);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  }
+
+  /* Base negra; el acento aparece solo al interactuar. */
+  .btn--primary {
+    background-color: var(--color-button);
+    border-color: var(--color-button);
+    color: var(--color-ink);
+  }
+
+  .btn--primary:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+
+  .btn--outline {
+    background-color: var(--color-button);
+    border-color: var(--color-line-strong);
+    color: var(--color-ink);
+  }
+
+  .btn--outline:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+
+  .btn--block {
+    width: 100%;
+  }
+
+  .btn .icon {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+}

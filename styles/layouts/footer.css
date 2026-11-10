@@ -1,0 +1,41 @@
+/* ============================================================================
+   LAYOUT · Pie de página
+   La fila y el responsive se resuelven con utilidades Tailwind en el HTML.
+   ============================================================================ */
+
+@layer components {
+  .site-footer {
+    padding-block: clamp(2rem, 5vw, 3.5rem);
+    background-color: var(--color-surface-lowest);
+    border-block-start: 1px solid var(--color-line);
+  }
+
+  .site-footer__status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-ink-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .site-footer__copy {
+    margin-block-start: 0.35rem;
+    color: var(--color-ink-dim);
+    font-size: 0.8125rem;
+  }
+
+  .site-footer__links {
+    color: var(--color-ink-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .site-footer__links a {
+    transition: color 0.18s ease;
+  }
+
+  .site-footer__links a:hover {
+    color: var(--color-accent);
+  }
+}

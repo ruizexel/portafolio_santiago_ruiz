@@ -1,0 +1,58 @@
+/* ============================================================================
+   LAYOUT · Secciones
+   ============================================================================ */
+
+@layer components {
+  .section {
+    padding-block: clamp(4rem, 9vw, 7rem);
+  }
+
+  .section--alt {
+    background-color: var(--color-surface-lowest);
+    border-block: 1px solid var(--color-line);
+  }
+
+  .section__head {
+    margin-block-end: clamp(2rem, 4vw, 3rem);
+  }
+
+  .section__title {
+    font-size: clamp(1.625rem, 3vw, 2.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .section__intro {
+    max-width: 42rem;
+    margin-block-start: 0.5rem;
+    color: var(--color-ink-muted);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+
+  .section__meta {
+    color: var(--color-ink-dim);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .section-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-block-end: 1rem;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .section-tag__line {
+    width: 5rem;
+    height: 1px;
+    background-color: var(--color-line);
+  }
+}

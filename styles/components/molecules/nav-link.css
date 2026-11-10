@@ -1,0 +1,21 @@
+/* ============================================================================
+   MOLÉCULA · Enlace de navegación
+   ============================================================================ */
+
+@layer components {
+  .nav-link {
+    display: inline-block;
+    padding-block: 0.35rem;
+    color: var(--color-ink-muted);
+    font-size: 0.8125rem;
+    transition: color 0.18s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--color-ink);
+  }
+
+  .nav-link[aria-current="page"] {
+    color: var(--color-accent);
+  }
+}

@@ -1,0 +1,32 @@
+/* ============================================================================
+   MOLÉCULA · Tarjeta de stack
+   La fila y el gap usan utilidades Tailwind en el HTML.
+   ============================================================================ */
+
+@layer components {
+  .stack-card {
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface-low);
+  }
+
+  .stack-card__head {
+    padding-block-end: 1rem;
+    border-block-end: 1px solid var(--color-line);
+  }
+
+  .stack-card__title {
+    font-size: 1rem;
+  }
+
+  .stack-card__body {
+    color: var(--color-ink-muted);
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+
+  .stack-card__tags {
+    margin-block-start: auto;
+  }
+}

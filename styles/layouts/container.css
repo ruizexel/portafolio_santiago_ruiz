@@ -1,0 +1,12 @@
+/* ============================================================================
+   LAYOUT · Contenedor
+   ============================================================================ */
+
+@layer components {
+  .container {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+}

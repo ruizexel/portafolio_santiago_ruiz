@@ -1,0 +1,19 @@
+{
+  "name": "portafolio-santiago-ruiz",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Portafolio personal de Santiago Ruiz: Express, HTML semántico, Tailwind CSS y JavaScript vanilla.",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./styles/main.css -o ./styles/build.css --watch",
+    "dev:server": "node --watch server.js",
+    "build": "npx @tailwindcss/cli -i ./styles/main.css -o ./styles/build.css --minify",
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.0",
+    "tailwindcss": "^4.3.0"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}

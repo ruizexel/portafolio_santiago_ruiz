@@ -1,0 +1,26 @@
+/* ============================================================================
+   ORGANISMO · Sobre mí
+   ============================================================================ */
+
+@layer components {
+  .about__copy {
+    display: grid;
+    gap: 1rem;
+    max-width: 46rem;
+  }
+
+  .about__copy h2 {
+    margin-block-end: 0.5rem;
+  }
+
+  .about__copy p {
+    color: var(--color-ink-muted);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+  }
+
+  .about__specs {
+    max-width: 34rem;
+    margin-block-start: 2rem;
+  }
+}

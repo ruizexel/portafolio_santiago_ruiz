@@ -1,0 +1,62 @@
+/* ============================================================================
+   TOKENS · "Technical Precision" (ajustado)
+   ----------------------------------------------------------------------------
+   Reglas de uso de la paleta (leer antes de agregar un color):
+
+   1. UN SOLO ACENTO — jade (--color-accent).
+      Solo para: enlaces en hover, fondo de botón en hover, foco, estado activo
+      del nav, iconos de énfasis y el punto de disponibilidad. Nunca como fondo
+      grande ni como color base de un botón.
+
+   2. UN COLOR SEÑAL — ámbar (--color-signal).
+      Solo para metadatos: versiones de proyecto, estados y avisos puntuales.
+      No compite con el acento porque nunca aparece junto a él en el mismo bloque.
+
+   3. PROFUNDIDAD = borde de 1px + escalón de superficie.
+      Prohibido: gradientes, sombras, backdrop-blur, glassmorphism, glow.
+
+   4. RADIOS: 2 / 4 / 6 / 8 px. Prohibidas las píldoras (999px).
+      Los únicos círculos permitidos son los puntos de estado de 6px.
+
+   5. JERARQUÍA por escala tipográfica y espacio, no por color.
+      El texto usa --color-ink / --color-ink-muted / --color-ink-dim.
+   ============================================================================ */
+
+@theme {
+  /* Tipografía ------------------------------------------------------------ */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Superficies ----------------------------------------------------------- */
+  --color-canvas: #0d0f10;
+  --color-button: #050607;
+  --color-surface-lowest: #08090a;
+  --color-surface-low: #131618;
+  --color-surface: #181b1d;
+  --color-surface-high: #1f2325;
+  --color-surface-highest: #272b2e;
+
+  /* Bordes ---------------------------------------------------------------- */
+  --color-line: #2b3134;
+  --color-line-strong: #3d4549;
+
+  /* Texto ----------------------------------------------------------------- */
+  --color-ink: #e8e6e3;
+  --color-ink-muted: #a9aeab;
+  --color-ink-dim: #7e8481;
+
+  /* Acento ---------------------------------------------------------------- */
+  --color-accent: #4ac7a0;
+  --color-accent-strong: #2fa886;
+  --color-accent-ink: #04130e;
+
+  /* Señal ---------------------------------------------------------------- */
+  --color-signal: #e0a458;
+  --color-signal-ink: #1a1206;
+
+  /* Radios ---------------------------------------------------------------- */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
