@@ -4,10 +4,13 @@
   "private": true,
   "description": "Portafolio personal de Santiago Ruiz: Express, HTML semántico, Tailwind CSS y JavaScript vanilla.",
   "scripts": {
-    "dev": "npx @tailwindcss/cli -i ./styles/main.css -o ./styles/build.css --watch",
+    "dev": "tailwindcss -i ./styles/main.css -o ./styles/build.css --watch",
     "dev:server": "node --watch server.js",
-    "build": "npx @tailwindcss/cli -i ./styles/main.css -o ./styles/build.css --minify",
+    "build": "tailwindcss -i ./styles/main.css -o ./styles/build.css --minify",
     "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.0",

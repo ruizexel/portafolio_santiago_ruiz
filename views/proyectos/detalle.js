@@ -17,10 +17,10 @@ function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
-/* Solo permite enlaces http(s) o el placeholder "#"; evita javascript: y data:. */
+/* Solo permite enlaces https o el placeholder "#"; evita javascript:, data: y http. */
 function safeUrl(value) {
   const url = String(value);
-  if (url === "#" || /^https?:\/\//i.test(url)) return escapeHtml(url);
+  if (url === "#" || /^https:\/\//i.test(url)) return escapeHtml(url);
   return "#";
 }
 
