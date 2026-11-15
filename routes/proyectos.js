@@ -1,44 +1,30 @@
 /* ============================================================================
    Rutas de proyectos.
+   - Toda ruta variable pasa primero por validarProyecto (allowlist de 6 slugs).
    - /proyectos vuelve a la sección del index.
-   - /proyectos/:slug redirige a la URL canónica /:proyecto.
-   - /:proyecto sirve el HTML propio si está permitido o el template dinámico.
+   - /proyectos/:proyecto redirige a la URL canónica /:proyecto.
+   - /:proyecto delega la respuesta al controlador si el slug es válido.
+   - Un slug fuera de la allowlist redirige al index de presentación.
    ============================================================================ */
 
 "use strict";
 
 const express = require("express");
-const path = require("path");
-const { proyectos, getProyecto } = require("../data/proyectos");
-const { renderProyecto } = require("../views/proyecto");
+const validarProyecto = require("../middleware/validarProyecto");
+const {
+  mostrarProyecto,
+  redirigirProyecto,
+} = require("../controllers/proyectos");
 
 const router = express.Router();
-const ROOT = path.join(__dirname, "..");
 
 router.get("/proyectos", (req, res) => {
   res.redirect(301, "/#proyectos");
 });
 
 /* Las URLs antiguas siguen funcionando mediante redirección permanente. */
-router.get("/proyectos/:slug", (req, res, next) => {
-  const proyecto = getProyecto(req.params.slug);
-  if (!proyecto) return next();
+router.get("/proyectos/:proyecto", validarProyecto, redirigirProyecto);
 
-  res.redirect(301, `/${proyecto.slug}`);
-});
-
-/* Ruta única variable: el campo `html` decide si hay página descentralizada. */
-router.get("/:proyecto", (req, res, next) => {
-  const proyecto = getProyecto(req.params.proyecto);
-  if (!proyecto) return next();
-
-  res.setHeader("Cache-Control", "no-cache");
-
-  if (proyecto.html) {
-    return res.sendFile(path.join(ROOT, proyecto.html));
-  }
-
-  res.type("html").send(renderProyecto(proyecto, proyectos));
-});
+router.get("/:proyecto", validarProyecto, mostrarProyecto);
 
 module.exports = router;

@@ -11,7 +11,7 @@ const proyectos = [
   {
     slug: "planificador-eventos",
     title: "Planificador de Eventos",
-    html: "planificadorEventos.html",
+    html: "views/proyectos/planificador-eventos.html",
   },
   {
     slug: "victus-caf",

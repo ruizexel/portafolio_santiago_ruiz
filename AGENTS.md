@@ -20,12 +20,16 @@ Las páginas de proyecto se sirven con Express: HTML propio o template dinámico
 ```
 index.html                  landing; secciones #inicio, #sobre-mi, #stack, #proyectos, #contacto
 index.js                    módulos init*() del cliente, llamados desde DOMContentLoaded
-planificadorEventos.html    página completa y descentralizada del Planificador de Eventos
 server.js                   Express: cabeceras, assets allowlisted, /img y fallback al index
-routes/proyectos.js         router de /proyectos y /:proyecto (allowlist de data/)
+routes/index.js             rutas de presentación del landing
+routes/proyectos.js         definición de rutas y conexión con middleware/controlador
+middleware/validarProyecto.js valida el slug desde req.params contra data/proyectos.js
+controllers/proyectos.js    redirección y respuesta HTML de páginas de proyecto
 data/proyectos.js           datos de tarjetas, pager y páginas dinámicas
 data/imagenes.js            allowlist de rutas servidas por /img
-views/proyecto.js           plantilla SSR de las páginas dinámicas; escapa todos los valores
+views/proyectos/
+  detalle.js                plantilla SSR dinámica; escapa todos los valores
+  planificador-eventos.html página completa y personalizada del Planificador
 package.json                scripts dev/build/start y dependencias
 styles/
   main.css                  entrada: @import "tailwindcss" + todos los parciales
@@ -64,17 +68,17 @@ AGENTS.md                   este archivo
   - Prohibido: gradientes, sombras, `backdrop-blur`, glassmorphism, glow.
   - Radios permitidos: 2, 4, 6 y 8 px. Nada de píldoras (`999px`).
   - Jerarquía por escala tipográfica y espacio, no por color.
-- Después de tocar cualquier CSS: `npm run build` y subir el `?v=N` de `index.html` y `ASSET_VERSION` de `views/proyecto.js`.
+- Después de tocar cualquier CSS: `npm run build` y subir el `?v=N` de `index.html` y `ASSET_VERSION` de `views/proyectos/detalle.js`.
 
 ## Gotchas
 
-- El host sirve `styles/build.css` e `index.js` con cache largo. Al cambiarlos, sube el `?v=N` de `index.html` y `ASSET_VERSION` de `views/proyecto.js`.
+- El host sirve `styles/build.css` e `index.js` con cache largo. Al cambiarlos, sube el `?v=N` de `index.html` y `ASSET_VERSION` de `views/proyectos/detalle.js`.
 - `.reveal--armed` la agrega `index.js` solo si existe `IntersectionObserver` y el usuario no pidió movimiento reducido. Sin JS el contenido queda visible; mantén ese patrón.
 - Hooks `data-*` en uso: `data-nav`, `data-menu-toggle`, `data-mobile-menu`, `data-nav-link`, `data-reveal`, `data-contact-form`, `data-form-status`, `data-form-message`, `data-year`. Cada `init*()` sale temprano si su hook no existe.
 - El menú móvil se controla con `aria-expanded`, `aria-controls="mobile-menu"` y la clase `is-open`; el breakpoint es `48rem`.
-- Cada proyecto se sirve en `/:proyecto`. `routes/proyectos.js` decide con una allowlist: si el proyecto tiene `html` en `data/proyectos.js` sirve ese archivo; si existe en los datos renderiza el template dinámico; si no, cae al index. `/proyectos/:slug` redirige 301 a `/:slug` y `/proyectos` a `/#proyectos`. El index enlaza con anclas `.project-card__more` (diseño de botón) y `views/proyecto.js` escapa todos los valores antes de renderizar.
+- Cada proyecto se sirve en `/:proyecto`. `routes/proyectos.js` conecta la ruta con `middleware/validarProyecto.js`, que valida `req.params.proyecto` contra la allowlist en `data/proyectos.js` antes de llamar `controllers/proyectos.js`. El controlador sirve la página propia indicada por los datos o renderiza la plantilla dinámica; un slug fuera de la allowlist redirige 302 al index de presentación (`/`) y las rutas de varios segmentos no reconocidas continúan al fallback del index. `/proyectos/:proyecto` redirige 301 a `/:proyecto` y `/proyectos` a `/#proyectos`. Los enlaces de proyecto usan esa ruta pública; `views/proyectos/detalle.js` escapa todos los valores antes de renderizar.
 - Las capturas se sirven por `/img` solo si su ruta está declarada en `data/imagenes.js`; cualquier otra cae al fallback. Para agregar imágenes, decláralas primero en ese archivo.
-- Campos opcionales de proyecto para páginas dinámicas: `gallery` (`src`, `alt`, `caption`), `highlights` (`title`, `description`), `stackGroups` (`label`, `items`) y `extraLinks` (`label`, `href`, `todo`). `views/proyecto.js` solo los renderiza si existen; `data-todo` se emite únicamente cuando la clave no está vacía.
+- Campos opcionales de proyecto para páginas dinámicas: `gallery` (`src`, `alt`, `caption`), `highlights` (`title`, `description`), `stackGroups` (`label`, `items`) y `extraLinks` (`label`, `href`, `todo`). `views/proyectos/detalle.js` solo los renderiza si existen; `data-todo` se emite únicamente cuando la clave no está vacía.
 - `index.html` tiene placeholders marcados con `data-todo` (CV, correo, GitHub, LinkedIn, GPG, demos y repos de proyectos). Santiago los completa personalmente antes de publicar.
 - El formulario solo valida y muestra un mensaje local; no envía datos. Para producción hay que conectarlo a Formspree, Netlify Forms o un endpoint propio.
 - El sitio se sirve con Express (`npm start`) en un host Node (Render, Railway, VPS). El dominio apunta al host. GitHub Pages ya no cubre `/:proyecto`; para volver a estático habría que generar esas páginas.

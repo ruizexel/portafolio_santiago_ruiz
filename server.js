@@ -10,6 +10,7 @@
 const express = require("express");
 const path = require("path");
 const { imagenesPermitidas } = require("./data/imagenes");
+const indexRouter = require("./routes");
 const proyectosRouter = require("./routes/proyectos");
 
 const app = express();
@@ -50,8 +51,6 @@ const sendAsset = (res, file) => {
 };
 
 /* Assets permitidos. No se expone el resto del repositorio (server.js, data/, etc.). */
-app.get("/", (req, res) => sendHtml(res, path.join(ROOT, "index.html")));
-app.get("/index.html", (req, res) => sendHtml(res, path.join(ROOT, "index.html")));
 app.get("/index.js", (req, res) => sendAsset(res, path.join(ROOT, "index.js")));
 app.get("/styles/build.css", (req, res) =>
   sendAsset(res, path.join(ROOT, "styles", "build.css"))
@@ -68,7 +67,8 @@ app.use("/img", (req, res, next) => {
   res.sendFile(path.join(ROOT, src));
 });
 
-/* Rutas de proyectos: /proyectos y la ruta variable /:proyecto. */
+/* Rutas de presentación y proyectos. */
+app.use(indexRouter);
 app.use(proyectosRouter);
 
 /* Fallback: rutas no reconocidas vuelven al index. */

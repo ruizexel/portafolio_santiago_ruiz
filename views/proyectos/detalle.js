@@ -1,5 +1,5 @@
 /* ============================================================================
-   Vista de detalle de proyecto.
+   Plantilla de detalle de proyecto.
    Renderiza una página completa a partir de los datos allowlisted de
    data/proyectos.js. Todo valor se escapa antes de entrar al HTML.
    ============================================================================ */
