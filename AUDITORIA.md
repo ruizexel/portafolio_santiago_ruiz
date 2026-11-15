@@ -94,6 +94,12 @@ SSR con payloads hostiles (`<script>`, `" onmouseover=`, `javascript:`, `data:`,
 2. Confirmar `/`, `/:proyecto`, assets y cabeceras.
 3. Si Vercel sirve algún asset por CDN sin pasar por Express, mover las cabeceras a `vercel.json` (`headers`).
 
+Notas de configuración:
+
+- `includeFiles` debe ser **un solo string glob** (máx. 256 caracteres) dentro de `functions`; un array solo es válido en `services`/`experimentalServices`. Valor actual: `{index.html,index.js,styles/build.css,img/**,views/**,data/**}`.
+- `framework: null` desactiva la detección automática de Express para que el patrón explícito `api/index.js` + rewrite sea el único que atiende las rutas.
+- El glob se validó contra el esquema oficial con `jsonschema` y expande a los archivos esperados.
+
 ## Recomendaciones pendientes
 
 - Conectar el formulario a un endpoint propio con CSRF/rate limit, o a Formspree ajustando `form-action`/`connect-src`.
